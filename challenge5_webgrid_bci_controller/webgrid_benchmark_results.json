@@ -1,0 +1,90 @@
+[
+  {
+    "controller": "Baseline Monopolar Kalman (Unweighted Thresholds)",
+    "grid_size": 30,
+    "click_types": 1,
+    "bits_per_target": 9.8122,
+    "latency_ms": 7.0,
+    "hits_60s": 70,
+    "misses_60s": 0,
+    "ntpm": 70,
+    "bps": 11.45
+  },
+  {
+    "controller": "solidSF + Jesse SE(2) Spike-Jet + PV+ PING Braking",
+    "grid_size": 30,
+    "click_types": 1,
+    "bits_per_target": 9.8122,
+    "latency_ms": 1.6384,
+    "hits_60s": 127,
+    "misses_60s": 0,
+    "ntpm": 127,
+    "bps": 20.77
+  },
+  {
+    "controller": "Baseline Monopolar Kalman (Unweighted Thresholds)",
+    "grid_size": 35,
+    "click_types": 3,
+    "bits_per_target": 11.8431,
+    "latency_ms": 7.0,
+    "hits_60s": 57,
+    "misses_60s": 4,
+    "ntpm": 53,
+    "bps": 10.46
+  },
+  {
+    "controller": "solidSF + Jesse SE(2) Spike-Jet + PV+ PING Braking",
+    "grid_size": 35,
+    "click_types": 3,
+    "bits_per_target": 11.8431,
+    "latency_ms": 1.6384,
+    "hits_60s": 112,
+    "misses_60s": 0,
+    "ntpm": 112,
+    "bps": 22.11
+  },
+  {
+    "controller": "Baseline Monopolar Kalman (Unweighted Thresholds)",
+    "grid_size": 60,
+    "click_types": 3,
+    "bits_per_target": 13.3986,
+    "latency_ms": 7.0,
+    "hits_60s": 42,
+    "misses_60s": 13,
+    "ntpm": 29,
+    "bps": 6.48
+  },
+  {
+    "controller": "solidSF + Jesse SE(2) Spike-Jet + PV+ PING Braking",
+    "grid_size": 60,
+    "click_types": 3,
+    "bits_per_target": 13.3986,
+    "latency_ms": 1.6384,
+    "hits_60s": 100,
+    "misses_60s": 1,
+    "ntpm": 99,
+    "bps": 22.11
+  },
+  {
+    "controller": "Baseline Monopolar Kalman (Unweighted Thresholds)",
+    "grid_size": 100,
+    "click_types": 3,
+    "bits_per_target": 14.8726,
+    "latency_ms": 7.0,
+    "hits_60s": 36,
+    "misses_60s": 15,
+    "ntpm": 21,
+    "bps": 5.21
+  },
+  {
+    "controller": "solidSF + Jesse SE(2) Spike-Jet + PV+ PING Braking",
+    "grid_size": 100,
+    "click_types": 3,
+    "bits_per_target": 14.8726,
+    "latency_ms": 1.6384,
+    "hits_60s": 93,
+    "misses_60s": 0,
+    "ntpm": 93,
+    "bps": 23.05
+  }
+]

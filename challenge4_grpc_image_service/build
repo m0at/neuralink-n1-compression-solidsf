@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+chmod +x server client
+python3 -m py_compile nl_image_engine.py server client
+echo "Build complete: ./server and ./client verified."

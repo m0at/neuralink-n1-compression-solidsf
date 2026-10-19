@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.neuralink.interviewing";
+
+message NLImage {
+    bool color = 1;
+    bytes data = 2;
+    int32 width = 3;
+    int32 height = 4;
+}
+
+message NLImageRotateRequest {
+    enum Rotation {
+        NONE = 0;
+        NINETY_DEG = 1;
+        ONE_EIGHTY_DEG = 2;
+        TWO_SEVENTY_DEG = 3;
+    }
+
+    Rotation rotation = 1;
+    NLImage image = 2;
+}
+
+service NLImageService {
+    rpc RotateImage(NLImageRotateRequest) returns (NLImage);
+    rpc MeanFilter(NLImage) returns (NLImage);
+}

@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""
+Neuralink Software Engineering Take-Home Challenge - `./client` executable
+Usage: ./client --port <...> --host <...> --input <...> --output <...> [--rotate <...>] [--mean]
+"""
+
+import argparse
+import sys
+import urllib.error
+import urllib.request
+from PIL import Image
+
+from nl_image_engine import (
+    NLImageMsg,
+    NLImageRotateRequestMsg,
+    ROTATION_BY_NAME,
+    decode_nl_image,
+    encode_nl_image,
+    encode_rotate_request,
+)
+
+
+def call_rpc(host: str, port: int, method: str, payload: bytes) -> bytes:
+    url = f"http://{host}:{port}/NLImageService/{method}"
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={"Content-Type": "application/x-protobuf"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return resp.read()
+    except urllib.error.HTTPError as err:
+        detail = err.read().decode("utf-8", errors="ignore")
+        raise RuntimeError(f"RPC {method} failed ({err.code}): {detail}") from err
+
+
+def load_image_to_proto(path: str) -> NLImageMsg:
+    with Image.open(path) as im:
+        if im.mode in ("L", "1"):
+            im_conv = im.convert("L")
+            color = False
+        else:
+            im_conv = im.convert("RGB")
+            color = True
+        w, h = im_conv.size
+        return NLImageMsg(color=color, data=im_conv.tobytes(), width=w, height=h)
+
+
+def save_proto_to_image(msg: NLImageMsg, path: str) -> None:
+    mode = "RGB" if msg.color else "L"
+    im = Image.frombytes(mode, (msg.width, msg.height), msg.data)
+    im.save(path)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="NLImageService Client")
+    parser.add_argument("--host", type=str, required=True)
+    parser.add_argument("--port", type=int, required=True)
+    parser.add_argument("--input", type=str, required=True)
+    parser.add_argument("--output", type=str, required=True)
+    parser.add_argument("--rotate", type=str, default=None)
+    parser.add_argument("--mean", action="store_true")
+    args = parser.parse_args()
+
+    msg = load_image_to_proto(args.input)
+
+    if args.rotate is not None:
+        rot_key = args.rotate.strip().upper()
+        if rot_key not in ROTATION_BY_NAME:
+            print(f"Invalid rotation enum: {args.rotate}", file=sys.stderr)
+            sys.exit(1)
+        rot_req = NLImageRotateRequestMsg(
+            rotation=int(ROTATION_BY_NAME[rot_key]), image=msg
+        )
+        resp_bytes = call_rpc(
+            args.host, args.port, "RotateImage", encode_rotate_request(rot_req)
+        )
+        msg = decode_nl_image(resp_bytes)
+
+    if args.mean:
+        resp_bytes = call_rpc(
+            args.host, args.port, "MeanFilter", encode_nl_image(msg)
+        )
+        msg = decode_nl_image(resp_bytes)
+
+    save_proto_to_image(msg, args.output)
+
+
+if __name__ == "__main__":
+    main()

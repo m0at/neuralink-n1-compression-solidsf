@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this formalization, mathematical cohort analysis, or telemetry codec in your research, please cite it as below."
+title: "Exact Silicon Forensics, Blind Multi-Channel Noise Rejection, and Topological Spike-Worldtube Compression for Neuralink N1 Intracortical Telemetry via the 10x10 Jesse Pixelean & Voxelean Cohort"
+authors:
+  - name: "solidSF Research Team: using Jesse v1.2.16"
+date-released: 2026-10-19
+version: "1.0.0"
+license: "MIT"
+keywords:
+  - Neuralink N1
+  - Intracortical Brain-Computer Interface
+  - Pixelean and Voxelean Algebra
+  - Lean 4 Formal Verification
+  - SAR ADC Differential Non-Linearity
+  - Spike Sorting and Betti Homology
+  - Lossless Neural Telemetry Compression
+doi: "10.5281/zenodo.23486374"

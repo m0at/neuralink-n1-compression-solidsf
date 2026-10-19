@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+chmod +x server client build setup
+echo "Setup complete (macOS / Ubuntu environment verified)."

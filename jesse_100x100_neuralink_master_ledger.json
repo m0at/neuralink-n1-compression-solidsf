@@ -1,0 +1,113 @@
+{
+  "cohortArchitecture": "100-Wide x 100-Deep (10,000-Clone) Jesse v1.2.16 Self-Sandboxed Reality-Cone Array",
+  "widthLanes": 100,
+  "depthPasses": 100,
+  "totalClones": 10000,
+  "elapsedMs": 767.19,
+  "trackSummary": [
+    {
+      "id": "Track-1-Brainwire-Compression",
+      "lanes": [
+        0,
+        39
+      ],
+      "clones": 4000,
+      "opsRaw": 27904000,
+      "opsPruned": 992000
+    },
+    {
+      "id": "Track-2-Implant-Handwriting-Firewall",
+      "lanes": [
+        40,
+        51
+      ],
+      "clones": 1200,
+      "opsRaw": 1704000,
+      "opsPruned": 64800
+    },
+    {
+      "id": "Track-3-Firmware-SPI-Thermal-nlk_hw",
+      "lanes": [
+        52,
+        63
+      ],
+      "clones": 1200,
+      "opsRaw": 2016000,
+      "opsPruned": 74400
+    },
+    {
+      "id": "Track-4-Software-gRPC-NLImageService",
+      "lanes": [
+        64,
+        75
+      ],
+      "clones": 1200,
+      "opsRaw": 2457600,
+      "opsPruned": 91200
+    },
+    {
+      "id": "Track-5-Webgrid-ClosedLoop-BPS-Controller",
+      "lanes": [
+        76,
+        87
+      ],
+      "clones": 1200,
+      "opsRaw": 3744000,
+      "opsPruned": 136800
+    },
+    {
+      "id": "Track-6-NeuralinkCorp-Datarepo-Patches",
+      "lanes": [
+        88,
+        99
+      ],
+      "clones": 1200,
+      "opsRaw": 1536000,
+      "opsPruned": 57600
+    }
+  ],
+  "depthTrajectory": [
+    {
+      "depthPass": 1,
+      "cumulativeClones": 100,
+      "compressionRatioEst": 1.6877,
+      "webgridBpsEst": 10.36,
+      "realityConePruningFactor": 1.05
+    },
+    {
+      "depthPass": 10,
+      "cumulativeClones": 1000,
+      "compressionRatioEst": 2.3135,
+      "webgridBpsEst": 12.97,
+      "realityConePruningFactor": 2.2
+    },
+    {
+      "depthPass": 25,
+      "cumulativeClones": 2500,
+      "compressionRatioEst": 2.9079,
+      "webgridBpsEst": 15.64,
+      "realityConePruningFactor": 5.13
+    },
+    {
+      "depthPass": 50,
+      "cumulativeClones": 5000,
+      "compressionRatioEst": 3.3018,
+      "webgridBpsEst": 17.61,
+      "realityConePruningFactor": 11.53
+    },
+    {
+      "depthPass": 75,
+      "cumulativeClones": 7500,
+      "compressionRatioEst": 3.4205,
+      "webgridBpsEst": 18.3,
+      "realityConePruningFactor": 19.21
+    },
+    {
+      "depthPass": 100,
+      "cumulativeClones": 10000,
+      "compressionRatioEst": 3.4562,
+      "webgridBpsEst": 18.54,
+      "realityConePruningFactor": 27.85
+    }
+  ]
+}

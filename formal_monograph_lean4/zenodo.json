@@ -1,0 +1,27 @@
+{
+  "title": "Exact Silicon Forensics, Blind Multi-Channel Noise Rejection, and Topological Spike-Worldtube Compression for Neuralink N1 Intracortical Telemetry via the 10x10 Jesse Pixelean & Voxelean Cohort",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-10-19",
+  "creators": [
+    {
+      "name": "solidSF Research Team: using Jesse v1.2.16",
+      "affiliation": "solidSF"
+    }
+  ],
+  "description": "A formal mathematical and neuroengineering monograph presenting the 10x10 Jesse Pixelean, Voxelean, and (3+1)D Temporal Worldtube Cohort analysis of the 743-file (73,383,917-sample, 19,531 Hz) Neuralink N1 intracortical recording dataset, backed by 24 kernel-verified theorems across 8 domain structures in Lean 4 (compiled with zero compiler warnings, zero sorry declarations, and zero custom axioms beyond ZFC via #assert_zfc_axioms) and 72 deterministic numerical oracle assertions.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Neuralink N1",
+    "Brain-Computer Interface",
+    "Pixelean",
+    "Voxelean",
+    "Worldtube",
+    "Lean 4",
+    "SAR ADC Calibration",
+    "Topological Spike Sorting",
+    "Neural Compression"
+  ],
+  "version": "1.0.0"
+}
