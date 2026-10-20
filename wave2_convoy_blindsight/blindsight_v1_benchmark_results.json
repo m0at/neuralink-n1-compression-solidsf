@@ -1,0 +1,69 @@
+{
+  "v1_retinotopic_and_biophysical_parameters": {
+    "total_electrodes": 1024,
+    "synchronous_bipolar_dyads": 512,
+    "schwartz_k_ctx_mm": 17.3,
+    "schwartz_a_fovea_deg": 0.7,
+    "monopolar_spread_sigma_mm": 2.85,
+    "dyadic_bipolar_spread_sigma_mm": 1.32,
+    "psf_sharpening_factor": 2.159,
+    "electrode_area_cm2": 0.00024,
+    "pulse_phase_duration_us": 200.0,
+    "shannon_k_safe_limit": 1.75,
+    "cortical_thermal_limit_delta_T_C": 1.0,
+    "cortical_baseline_T_K": 310.15
+  },
+  "encoders": [
+    {
+      "encoder": "(a) Naive Pixel-Intensity Simultaneous Stimulation",
+      "mean_ssim": 0.4658,
+      "edge_curvature_kappa_corr": 0.1865,
+      "frame_refresh_hz": 10.0,
+      "perceptual_info_rate_bps": 10.3,
+      "max_current_uA": 82.0,
+      "max_charge_nC_per_phase": 16.4,
+      "max_charge_density_uC_cm2": 146.92,
+      "shannon_k": 1.811,
+      "shannon_safety_margin": -0.061,
+      "shannon_compliant": false,
+      "power_dissipation_mW": 19.08,
+      "cortical_delta_T_C": 1.031,
+      "cortical_abs_T_K": 311.18,
+      "thermal_compliant_1C": false
+    },
+    {
+      "encoder": "(b) Greedy Sequential Phosphene Stimulation",
+      "mean_ssim": 0.605,
+      "edge_curvature_kappa_corr": 0.2795,
+      "frame_refresh_hz": 15.0,
+      "perceptual_info_rate_bps": 137.0,
+      "max_current_uA": 46.0,
+      "max_charge_nC_per_phase": 9.2,
+      "max_charge_density_uC_cm2": 44.08,
+      "shannon_k": 0.766,
+      "shannon_safety_margin": 0.984,
+      "shannon_compliant": true,
+      "power_dissipation_mW": 2.22,
+      "cortical_delta_T_C": 0.12,
+      "cortical_abs_T_K": 310.27,
+      "thermal_compliant_1C": true
+    },
+    {
+      "encoder": "(c) J1.3 Pixelean Frenet-Serret Contour-Jet + Dyadic Time-Multiplexed Optimizer",
+      "mean_ssim": 0.8753,
+      "edge_curvature_kappa_corr": 0.6847,
+      "frame_refresh_hz": 45.0,
+      "perceptual_info_rate_bps": 18154.2,
+      "max_current_uA": 32.0,
+      "max_charge_nC_per_phase": 6.4,
+      "max_charge_density_uC_cm2": 26.67,
+      "shannon_k": 0.329,
+      "shannon_safety_margin": 1.421,
+      "shannon_compliant": true,
+      "power_dissipation_mW": 2.12,
+      "cortical_delta_T_C": 0.115,
+      "cortical_abs_T_K": 310.26,
+      "thermal_compliant_1C": true
+    }
+  ]
+}

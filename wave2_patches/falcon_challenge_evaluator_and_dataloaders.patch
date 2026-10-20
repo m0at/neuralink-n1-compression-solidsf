@@ -1,0 +1,64 @@
+diff --git a/falcon_challenge/dataloaders.py b/falcon_challenge/dataloaders.py
+index a413d78..d5d34a1 100644
+--- a/falcon_challenge/dataloaders.py
++++ b/falcon_challenge/dataloaders.py
+@@ -95,7 +95,9 @@ def load_nwb(fn: Union[str, Path], dataset: FalconTask = FalconTask.h1, bin_old=
+             kin = nwbfile.acquisition['OpenLoopKinematicsVelocity'].data[:]
+             try:
+                 eval_mask = nwbfile.acquisition['eval_mask'].data[:].astype(bool)
+-                timestamps = nwbfile.acquisition['OpenLoopKinematics'].offset + np.arange(kin.shape[0]) * nwbfile.acquisition['OpenLoopKinematics'].rate
++                rate = float(nwbfile.acquisition['OpenLoopKinematics'].rate)
++                dt = (1.0 / rate) if rate > 1.0 else rate
++                timestamps = nwbfile.acquisition['OpenLoopKinematics'].offset + np.arange(kin.shape[0]) * dt
+             except: #for older format oracle data
+                 eval_mask = ~nwbfile.acquisition['Blacklist'].data[:].astype(bool)
+                 timestamps = nwbfile.acquisition['OpenLoopKinematics'].offset + np.arange(kin.shape[0]) * .02
+diff --git a/falcon_challenge/evaluator.py b/falcon_challenge/evaluator.py
+index 4377ef3..5fb4d01 100644
+--- a/falcon_challenge/evaluator.py
++++ b/falcon_challenge/evaluator.py
+@@ -270,7 +270,7 @@ def evaluate(
+         for in_or_out in pred_dict:
+ 
+             if len(pred_dict[in_or_out]) < len(DATASET_HELDINOUT_MAP[datasplit][in_or_out]):
+-                raise ValueError(f"Missing predictions for {datasplit} {in_or_out}. User submitted: {user_submission[datasplit].keys()}. Expecting more like: {HELDIN_OR_OUT_MAP[datasplit][in_or_out]}.")
++                raise ValueError(f"Missing predictions for {datasplit} {in_or_out}. User submitted: {list(user_submission[datasplit].keys())}. Expecting more like: {DATASET_HELDINOUT_MAP[datasplit][in_or_out]}.")
+ 
+             if 'b1' in datasplit:
+                 # B1 computes metrics across sessions independently. Don't concatenate.
+@@ -552,7 +552,7 @@ class FalconEvaluator:
+         return all_preds, all_targets, all_eval_mask, all_compute_times, all_neural_times
+ 
+     def evaluate_files(self, decoder: BCIDecoder, eval_files: List):
+-        all_preds, all_targets, all_eval_mask = self.predict_files(decoder, eval_files)
++        all_preds, all_targets, all_eval_mask, _, _ = self.predict_files(decoder, eval_files)
+         metrics = self.compute_metrics(all_preds, all_targets, all_eval_mask)
+         return metrics
+ 
+@@ -666,7 +666,8 @@ class FalconEvaluator:
+             """"
+             Normalizes signal x between 0 and 1.
+             """
+-            return (x-np.min(x))/(np.max(x)-np.min(x))
++            denom = np.max(x) - np.min(x)
++            return np.zeros_like(x, dtype=np.float64) if denom == 0 else (x - np.min(x)) / denom
+ 
+         # Spectrogram-trials lengths (across sessions)
+         trial_len_before_mask, trial_len_after_mask, frequencies = 880, 700, 158
+@@ -796,14 +797,14 @@ class FalconEvaluator:
+             "CER Std.": np.std(cers),
+         }
+ 
+-    def compute_metrics(self, all_preds, all_targets, all_eval_mask=None):
++    def compute_metrics(self, all_preds, all_targets, all_eval_mask=None, dset_lens=None):
+         r"""
+             all_preds: array of shape (n_timesteps, k_dim)
+             all_targets: array of shape (n_timesteps, k_dim)
+             all_eval_mask: array of shape (n_timesteps, k_dim). True if we should evaluate this timestep.
+         """
+         if self.dataset in [FalconTask.h1, FalconTask.m1, FalconTask.m2]:
+-            metrics = self.compute_metrics_regression(all_preds, all_targets, all_eval_mask, verbose=self.verbose)
++            metrics = self.compute_metrics_regression(all_preds, all_targets, all_eval_mask, dset_lens, verbose=self.verbose)
+         elif self.dataset in [FalconTask.h2]:
+             metrics = self.compute_metrics_edit_distance(all_preds, all_targets, all_eval_mask)
+         elif self.dataset in [FalconTask.b1]:

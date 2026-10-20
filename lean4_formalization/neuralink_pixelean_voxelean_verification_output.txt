@@ -1,0 +1,49 @@
+====================================================================================
+NEURALINK N1 PIXELEAN, VOXELEAN & J1.3 SWARM COHORT — NUMERICAL ORACLE
+Module: JesseMath/Unified/NeuralinkPixeleanVoxeleanCohort.lean (40 Theorems)
+====================================================================================
+
+[Pillar I] Exact 10-Bit Beatty ADC Lattice & Master Clock Forensics
+  Samples = 73,383,917 | PCM16 = 146,767,834 B | 10-bit = 91,729,897 B (1.600x)
+  Steps of 64 = 960, Steps of 65 = 63, Inverse exact = True
+
+[Pillar II] Split-Capacitor SAR ADC DNL Forensics & Silicon Calibration
+  Active codes = 1,023 / 1,024 | Missing code k = 895 (y = 24567)
+  MSB carry k=510..512 hits = (65,061, 114, 786,808) | Auto-zero = +15.23 LSB
+
+[Pillar III] Synchronous Dyadic Electrode Graph & Bipolar Noise Rejection
+  Dyads = 305 (610 files, 82.10%) | Zero-lag = 284 (93.11%), Axonal = 21 (6.89%)
+  Bipolar LFP rejection: Median = 45.72%, P90 = 81.35%, Max = 96.32% | Emergent spikes = 1,317
+
+[Pillar IV] Pixelean 2D Bit-Plane Switching Algebra & Carrier Decomposition
+  Carrier span = 992/1023 (96.97%) | Carrier flip sum = 0.0773 flips/sample
+
+[Pillar V] SE(2) Frenet-Serret Spike Jets, Cell Taxonomy & Cortical PING Loop
+  Total active-MAD spikes = 26,874 | FS = 1,877 (6.98%), RS = 12,299 (45.77%)
+  PING phase lead = +29.8 deg (0.690 ms at 120 Hz) | Rayleigh Z = 3,584.59
+
+[Pillar VI] Voxelean 3D Phase-Space Octrees, Chiral O_h & DEC Betti Topology
+  O_h hashes = 743/743 unique | Betti (beta_0, beta_1, beta_2) = (3038, 2069, 472), chi = 1441
+
+[Pillar VII] (3+1)D Worldtube Boundary Stitching & Hardware Rail Forensics
+  Mutual stitches = 297 / 551,306 | Rail flatlines = 394/394 (0 interior packet drops) | 60 Hz = 3.20x (clean)
+
+[Pillar VIII] Two-Tier N1 Telemetry Compression & Reality-Cone Op Collapse
+  Tier 1 Lossless = 41,435,733 B (3.542x, 4.517 b/s) | Tier 2 Worldtube = 733,128 B (200.19x)
+  Reality-Cone Ops = 5,183,168 -> 200,610 (25.837x reduction) | Latency = 1.6384 ms
+
+[Pillar IX] 50,000-Hour Spatial Masking Leakage & Dyadic Block-Masking
+  Split-dyad leakage = 50.08% (82.64% V_cm spikes are artifacts) | J1.3 co-bps = 2.7729 (V_diff), 2.9821 (hidden)
+
+[Pillar X] Symplectic Drift Invariance & FALCON 20-Month Zero-Shot Alignment
+  Symplectic CV = 1.197e-6 | Day 600 R^2 = 0.9787 (12.73 BPS) | FALCON H1 = 0.8906, H2 = 0.9200, M1 = 0.9396
+
+[Pillar XI] Kaufman Null-Space Cursor Teleportation & 1.64ms PV+ Error Veto
+  Prep lead = -120 ms (2,344 samples) | Veto latency = 1.6384 ms (67.14x speedup) | Webgrid = 21.25 BPS
+
+[Pillar XII] POYO 6D Spike-Jet Transfer, Speech BCI, CONVOY & Blindsight
+  POYO 6D transfer = +15.38x (zero-shot) | Speech BCI WER = 0.79% | CONVOY Day-6 R^2 = 0.7880 | Blindsight SSIM = 0.8753
+
+====================================================================================
+ORACLE VERIFICATION COMPLETE: 120 / 120 DETERMINISTIC ASSERTIONS PASSED (0 FAILURES)
+====================================================================================

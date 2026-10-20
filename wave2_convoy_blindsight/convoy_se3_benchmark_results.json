@@ -1,0 +1,180 @@
+{
+  "n1_biophysical_unit_separation": {
+    "synchronous_dyads": 305,
+    "class_II_rs_pyramidal_spikes": 3995,
+    "class_I_pv_fast_spiking_spikes": 1095,
+    "rs_fraction_pct": 78.49,
+    "fs_fraction_pct": 21.51
+  },
+  "theorem_se3_6day_failure_mechanism": {
+    "statement": "Unstructured Euclidean 7D decoding violates SE(3) body-frame Adjoint equivariance Ad_T(xi), coupling translational velocity v in R^3 with angular velocity w in so(3). Under neural subspace rotation Q(t) in SO(7), directional cosine decays 3.5x faster per degree than in 2D cursor control and angular errors compound multiplicatively via exp([w]_x dt), rendering standard 7-DoF decoders unusable by Day 6.",
+    "d2_vs_d7_rotational_decay_ratio": 3.5
+  },
+  "horizons": [
+    {
+      "horizon": "Day 0 (Calibrated)",
+      "days": 0,
+      "drop_rate_pct": 0.0,
+      "rot_deg": 0.0,
+      "euclidean_unaligned": {
+        "r2": 0.7314,
+        "r2_raw": 0.7314,
+        "cross_axis_contam_pct": 6.98,
+        "pos_rmse_mm": 19.8,
+        "ori_err_deg": 10.62,
+        "grasp_success_pct": 31.6,
+        "pick_place_obj_per_min": 4.41
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.7397,
+        "r2_raw": 0.7397,
+        "cross_axis_contam_pct": 6.1,
+        "pos_rmse_mm": 19.18,
+        "ori_err_deg": 9.49,
+        "grasp_success_pct": 42.0,
+        "pick_place_obj_per_min": 6.14
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.7881,
+        "r2_raw": 0.7881,
+        "cross_axis_contam_pct": 4.62,
+        "pos_rmse_mm": 16.35,
+        "ori_err_deg": 7.24,
+        "grasp_success_pct": 56.0,
+        "pick_place_obj_per_min": 8.74
+      }
+    },
+    {
+      "horizon": "Day 3 (72 Hours)",
+      "days": 3,
+      "drop_rate_pct": 12.0,
+      "rot_deg": 24.0,
+      "euclidean_unaligned": {
+        "r2": 0.5731,
+        "r2_raw": 0.5731,
+        "cross_axis_contam_pct": 26.29,
+        "pos_rmse_mm": 51.33,
+        "ori_err_deg": 23.21,
+        "grasp_success_pct": 7.6,
+        "pick_place_obj_per_min": 0.79
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.6803,
+        "r2_raw": 0.6803,
+        "cross_axis_contam_pct": 17.72,
+        "pos_rmse_mm": 33.98,
+        "ori_err_deg": 15.0,
+        "grasp_success_pct": 21.2,
+        "pick_place_obj_per_min": 2.72
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.7881,
+        "r2_raw": 0.7881,
+        "cross_axis_contam_pct": 4.7,
+        "pos_rmse_mm": 16.7,
+        "ori_err_deg": 7.3,
+        "grasp_success_pct": 55.6,
+        "pick_place_obj_per_min": 8.67
+      }
+    },
+    {
+      "horizon": "Day 6 (6-Day Cliff)",
+      "days": 6,
+      "drop_rate_pct": 22.0,
+      "rot_deg": 44.0,
+      "euclidean_unaligned": {
+        "r2": 0.2815,
+        "r2_raw": 0.2815,
+        "cross_axis_contam_pct": 40.25,
+        "pos_rmse_mm": 93.78,
+        "ori_err_deg": 40.98,
+        "grasp_success_pct": 3.2,
+        "pick_place_obj_per_min": 0.23
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.5546,
+        "r2_raw": 0.5546,
+        "cross_axis_contam_pct": 28.8,
+        "pos_rmse_mm": 56.09,
+        "ori_err_deg": 24.38,
+        "grasp_success_pct": 7.2,
+        "pick_place_obj_per_min": 0.73
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.788,
+        "r2_raw": 0.788,
+        "cross_axis_contam_pct": 4.79,
+        "pos_rmse_mm": 17.01,
+        "ori_err_deg": 7.36,
+        "grasp_success_pct": 54.8,
+        "pick_place_obj_per_min": 8.52
+      }
+    },
+    {
+      "horizon": "Day 30 (1 Month)",
+      "days": 30,
+      "drop_rate_pct": 41.0,
+      "rot_deg": 72.0,
+      "euclidean_unaligned": {
+        "r2": 0.0,
+        "r2_raw": -0.096,
+        "cross_axis_contam_pct": 48.54,
+        "pos_rmse_mm": 142.68,
+        "ori_err_deg": 58.47,
+        "grasp_success_pct": 1.6,
+        "pick_place_obj_per_min": 0.0
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.3366,
+        "r2_raw": 0.3366,
+        "cross_axis_contam_pct": 38.82,
+        "pos_rmse_mm": 88.23,
+        "ori_err_deg": 37.57,
+        "grasp_success_pct": 4.4,
+        "pick_place_obj_per_min": 0.35
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.7874,
+        "r2_raw": 0.7874,
+        "cross_axis_contam_pct": 5.05,
+        "pos_rmse_mm": 17.68,
+        "ori_err_deg": 7.5,
+        "grasp_success_pct": 53.2,
+        "pick_place_obj_per_min": 8.23
+      }
+    },
+    {
+      "horizon": "Day 180 (6 Months)",
+      "days": 180,
+      "drop_rate_pct": 58.0,
+      "rot_deg": 98.0,
+      "euclidean_unaligned": {
+        "r2": 0.0,
+        "r2_raw": -0.3336,
+        "cross_axis_contam_pct": 51.5,
+        "pos_rmse_mm": 167.51,
+        "ori_err_deg": 63.71,
+        "grasp_success_pct": 1.6,
+        "pick_place_obj_per_min": 0.0
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.0984,
+        "r2_raw": 0.0984,
+        "cross_axis_contam_pct": 45.87,
+        "pos_rmse_mm": 120.76,
+        "ori_err_deg": 50.68,
+        "grasp_success_pct": 1.6,
+        "pick_place_obj_per_min": 0.07
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.786,
+        "r2_raw": 0.786,
+        "cross_axis_contam_pct": 5.46,
+        "pos_rmse_mm": 18.46,
+        "ori_err_deg": 7.68,
+        "grasp_success_pct": 50.8,
+        "pick_place_obj_per_min": 7.8
+      }
+    }
+  ]
+}

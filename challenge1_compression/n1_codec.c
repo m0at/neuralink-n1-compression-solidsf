@@ -166,10 +166,10 @@ static inline uint32_t rc_decode_raw_bits(RangeCoder *rc, int nbits) {
 typedef struct {
     uint32_t H0[NSYMS];
     uint32_t H1[15][7][NSYMS];
-    uint32_t H2[16][9][NSYMS];
+    uint32_t H2[512][3][NSYMS];
     uint32_t sum0;
     uint32_t sum1[15][7];
-    uint32_t sum2[16][9];
+    uint32_t sum2[512][3];
     double   bin_w[1024];
     double   online_cnt[1024];
     uint32_t dnl_q[1024];       /* Q10 integer DNL weight for fast inner loop */
@@ -186,8 +186,8 @@ static void model_update_dnl_table(N1Model *m) {
                             m->online_cnt[c] + m->online_cnt[c + 1] + m->online_cnt[c + 2]);
         }
         double dnl_factor = m->bin_w[c] *
-                            pow((m->online_cnt[c] + 0.2) / (loc_sm + 0.2), 0.70) *
-                            pow(m->online_cnt[c] + 0.5, 0.12);
+                            pow((m->online_cnt[c] + 0.2) / (loc_sm + 0.2), 0.62) *
+                            pow(m->online_cnt[c] + 0.5, 0.10);
         int32_t q = (int32_t)(dnl_factor * 1024.0 + 0.5);
         if (q < 1) q = 1;
         if (q > 16384) q = 16384;
@@ -210,8 +210,8 @@ static void model_init(N1Model *m) {
             }
         }
     }
-    for (int a = 0; a < 16; a++) {
-        for (int b = 0; b < 9; b++) {
+    for (int a = 0; a < 512; a++) {
+        for (int b = 0; b < 3; b++) {
             m->sum2[a][b] = 0;
             for (int s = 0; s < NSYMS; s++) {
                 m->H2[a][b][s] = 1;
@@ -262,8 +262,8 @@ static inline void model_build_cdf(
     int d2 = (t >= 3) ? (k[t - 2] - k[t - 3]) : 0;
     int c_d1 = clamp_i(d1, -7, 7) + 7;
     int c_d2 = clamp_i(d2, -3, 3) + 3;
-    int c_d1_s = clamp_i(d1, -4, 4) + 4;
-    int c_sar = k_prev & 15;
+    int c_d1_s = clamp_i(d1, -1, 1) + 1;
+    int c_sar = k_prev & 511;
 
     int si = clamp_i((m->scale_q8 - 90) / 38, 0, 31);
     const uint32_t *klut = m->kernel_lut[si];
@@ -295,7 +295,7 @@ static inline void model_build_cdf(
 
             uint32_t q_param = klut[dist_q4];
             uint32_t q_hist = h0[s] * mul0 + h1[s] * mul1 + h2[s] * mul2;
-            uint64_t combined = (uint64_t)(55U * q_param + 45U * q_hist) * (uint64_t)m->dnl_q[target_c];
+            uint64_t combined = (uint64_t)(58U * q_param + 42U * q_hist) * (uint64_t)m->dnl_q[target_c];
             uint32_t w = (uint32_t)(combined >> 14) + 1U;
             raw_w[s] = w;
         }
@@ -328,29 +328,29 @@ static inline void model_update(N1Model *m, const int *k, int t, int32_t pred_q4
     int d2 = (t >= 3) ? (k[t - 2] - k[t - 3]) : 0;
     int c_d1 = clamp_i(d1, -7, 7) + 7;
     int c_d2 = clamp_i(d2, -3, 3) + 3;
-    int c_d1_s = clamp_i(d1, -4, 4) + 4;
-    int c_sar = k_prev & 15;
+    int c_d1_s = clamp_i(d1, -1, 1) + 1;
+    int c_sar = k_prev & 511;
 
     int true_delta = k_cur - k_prev;
     int true_sym = (true_delta >= -MAX_DELTA && true_delta <= MAX_DELTA) ? (true_delta + MAX_DELTA) : 63;
 
-    m->H0[true_sym] += 2;
-    m->sum0 += 2;
-    m->H1[c_d1][c_d2][true_sym] += 3;
-    m->sum1[c_d1][c_d2] += 3;
-    m->H2[c_sar][c_d1_s][true_sym] += 3;
-    m->sum2[c_sar][c_d1_s] += 3;
+    m->H0[true_sym] += 3;
+    m->sum0 += 3;
+    m->H1[c_d1][c_d2][true_sym] += 180;
+    m->sum1[c_d1][c_d2] += 180;
+    m->H2[c_sar][c_d1_s][true_sym] += 170;
+    m->sum2[c_sar][c_d1_s] += 170;
 
     /* NLMS Q12 update */
     int32_t err_q4 = ((int32_t)k_cur << 4) - pred_q4;
-    int32_t norm = 80;
+    int32_t norm = 220;
     for (int j = 1; j <= 8 && t - j - 1 >= 0; j++) {
         int32_t dj = k[t - j] - k[t - j - 1];
         norm += dj * dj;
     }
     for (int j = 1; j <= 8 && t - j - 1 >= 0; j++) {
         int32_t dj = k[t - j] - k[t - j - 1];
-        int32_t step = (err_q4 * dj * 20) / norm;
+        int32_t step = (err_q4 * dj * 4) / norm;
         m->w_q12[j] = clamp_i(m->w_q12[j] + step, -8192, 8192);
     }
 
@@ -358,7 +358,7 @@ static inline void model_update(N1Model *m, const int *k, int t, int32_t pred_q4
     m->scale_q8 = (246 * m->scale_q8 + 10 * abs_err_q8) >> 8;
 
     m->online_cnt[k_cur] += 1.0;
-    if ((t & 255) == 0) {
+    if ((t & 63) == 0) {
         model_update_dnl_table(m);
     }
 }
