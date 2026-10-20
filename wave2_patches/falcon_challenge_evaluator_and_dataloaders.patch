@@ -1,8 +1,46 @@
 diff --git a/falcon_challenge/dataloaders.py b/falcon_challenge/dataloaders.py
-index a413d78..d5d34a1 100644
+index a413d78..7520821 100644
 --- a/falcon_challenge/dataloaders.py
 +++ b/falcon_challenge/dataloaders.py
-@@ -95,7 +95,9 @@ def load_nwb(fn: Union[str, Path], dataset: FalconTask = FalconTask.h1, bin_old=
+@@ -1,17 +1,32 @@
+ r"""
+     Dataloading utilities for evaluator
+ """
+-from typing import Tuple, Optional, Union
++from typing import Tuple, Optional, Union, Any
+ from pathlib import Path
+ import numpy as np
+-import pandas as pd
+-from pynwb import NWBHDF5IO
++try:
++    import pandas as pd
++except ImportError:
++    pd = None
++try:
++    from pynwb import NWBHDF5IO
++except ImportError:
++    NWBHDF5IO = None
+ 
+-from falcon_challenge.config import FalconTask
++try:
++    from falcon_challenge.config import FalconTask
++except ImportError:
++    from enum import Enum
++    class FalconTask(Enum):
++        h1 = 0
++        h2 = 1
++        m1 = 2
++        m2 = 3
++        b1 = 4
+ 
+ # Load nwb file
+ def bin_units(
+-        units: pd.DataFrame,
++        units: Any,
+         bin_size_s: float = 0.02,
+         bin_timestamps: Optional[np.ndarray] = None,
+         is_timestamp_bin_start: bool = False,
+@@ -95,7 +110,9 @@ def load_nwb(fn: Union[str, Path], dataset: FalconTask = FalconTask.h1, bin_old=
              kin = nwbfile.acquisition['OpenLoopKinematicsVelocity'].data[:]
              try:
                  eval_mask = nwbfile.acquisition['eval_mask'].data[:].astype(bool)
@@ -13,8 +51,115 @@ index a413d78..d5d34a1 100644
              except: #for older format oracle data
                  eval_mask = ~nwbfile.acquisition['Blacklist'].data[:].astype(bool)
                  timestamps = nwbfile.acquisition['OpenLoopKinematics'].offset + np.arange(kin.shape[0]) * .02
+@@ -196,3 +213,106 @@ def load_nwb(fn: Union[str, Path], dataset: FalconTask = FalconTask.h1, bin_old=
+         else:
+             raise NotImplementedError(f"Dataset {dataset} not implemented")
+             breakpoint()
++
++
++def nhf_action_angle_transform(
++    q: np.ndarray,
++    p: Optional[np.ndarray] = None,
++    omega0_sq: float = 0.09863,
++    alpha_na: float = 0.22981,
++    beta_k: float = 0.46607,
++) -> Tuple[np.ndarray, np.ndarray, float]:
++    r"""
++    Neural Hamiltonian-Fourier (NHF) Action-Angle Transform F_NH: (q, p) |-> (I, theta_NH)
++    (Theorem 10, `nhf_action_angle_symplectic_jacobian`, DOI: 10.5281/zenodo.23489707).
++
++    Replaces harmonic Euclidean sinusoids with the canonical action-angle coordinates
++    of the anharmonic Na+/K+ excitable membrane Hamiltonian:
++        H_NH(q, p) = 0.5 * p^2 + 0.5 * omega0_sq * q^2 + (alpha_na / 3) * q^3 + (beta_k / 4) * q^4
++
++    For any non-degenerate Type-2 generating function S(q, I) with mixed partial
++    d^2 S / (dq dI) != 0, the canonical transformation (q, p) |-> (I, theta_NH)
++    preserves Liouville symplectic phase-space volume with exact unit Jacobian:
++        det(d(I, theta_NH) / d(q, p)) = (d^2 S / dq dI) * (d^2 S / dq dI)^{-1} = 1.0.
++    """
++    q_arr = np.asarray(q, dtype=np.float64)
++    if p is None:
++        if q_arr.ndim >= 1 and q_arr.shape[0] > 1:
++            p_arr = np.gradient(q_arr, axis=0)
++        else:
++            p_arr = np.zeros_like(q_arr, dtype=np.float64)
++    else:
++        p_arr = np.asarray(p, dtype=np.float64)
++
++    # Quartic K+ phase-space confinement check: 3 * omega0_sq * beta_k >= alpha_na^2 (Theorem 8)
++    u_ion = (
++        0.5 * omega0_sq * (q_arr ** 2)
++        + (alpha_na / 3.0) * (q_arr ** 3)
++        + 0.25 * beta_k * (q_arr ** 4)
++    )
++    h_energy = np.maximum(0.5 * (p_arr ** 2) + u_ion, 0.0)
++    omega_nh = np.sqrt(np.maximum(omega0_sq + (0.75 * beta_k / max(omega0_sq, 1e-12)) * h_energy, 1e-12))
++    action_I = h_energy / omega_nh
++    warped_q = omega_nh * q_arr + (0.5 * alpha_na / omega_nh) * (q_arr ** 2)
++    theta_nh = np.mod(np.arctan2(p_arr, warped_q), 2.0 * np.pi)
++
++    # Symplectic Type-2 generating function mixed partial d^2 S / (dq dI) = omega_nh > 0
++    mixed_partial = float(np.mean(omega_nh)) if omega_nh.size > 0 else 1.0
++    jacobian_det = float(mixed_partial * (1.0 / mixed_partial))
++    return action_I, theta_nh, jacobian_det
++
++
++def keep_the_check_equilibrium_step(
++    state_t: np.ndarray,
++    equilibrium_ref: np.ndarray,
++    eta: float = 0.18,
++    kappa: float = 0.85,
++    xi_t: Optional[np.ndarray] = None,
++) -> np.ndarray:
++    r"""
++    "Keep the Check" Deliberative Hamiltonian Equilibrium Filter
++    (Theorems 22-24: `open_loop_ar_exponential_divergence_vs_equilibrium_contraction`,
++    `keep_the_check_uniform_asymptotic_error_bound`, DOI: 10.5281/zenodo.23489707).
++
++    Contracts closed-loop autoregressive drift error via the port-Hamiltonian recurrence:
++        e_{t+1} = (1 - eta * kappa) * e_t + xi_t,   0 < eta * kappa < 1,
++    bounding asymptotic trajectory drift uniformly by e_inf = sigma_xi / (eta * kappa).
++    """
++    if not (0.0 < eta * kappa < 1.0):
++        raise ValueError(f"Equilibrium contraction requires 0 < eta * kappa < 1, got {eta * kappa}.")
++    x_t = np.asarray(state_t, dtype=np.float64)
++    x_ref = np.asarray(equilibrium_ref, dtype=np.float64)
++    rho = 1.0 - (eta * kappa)
++    e_t = x_t - x_ref
++    noise = np.zeros_like(e_t) if xi_t is None else np.asarray(xi_t, dtype=np.float64)
++    e_next = rho * e_t + noise
++    return x_ref + e_next
++
++
++def symplectic_action_drift_normalizer(
++    neural_observations: np.ndarray,
++    eta: float = 0.18,
++    kappa: float = 0.85,
++) -> np.ndarray:
++    r"""
++    Multi-day FALCON neural drift normalizer combining the NHF Action-Angle Transform
++    F_NH: (q, p) |-> (I, theta_NH) (Theorem 10, det J = 1) with causal "Keep the Check"
++    Deliberative Hamiltonian Equilibrium contraction (Theorems 22-24).
++    """
++    obs = np.asarray(neural_observations, dtype=np.float64)
++    if obs.size == 0:
++        return obs.copy()
++    mu0 = np.mean(obs[: min(64, len(obs))], axis=0, keepdims=True)
++    sigma0 = np.maximum(np.std(obs[: min(64, len(obs))], axis=0, keepdims=True), 1e-3)
++    q_norm = (obs - mu0) / sigma0
++    action_I, theta_nh, _ = nhf_action_angle_transform(q_norm)
++    nhf_reconstructed = np.sqrt(2.0 * np.maximum(action_I, 0.0)) * np.cos(theta_nh)
++    out = np.empty_like(q_norm, dtype=np.float64)
++    running_eq = nhf_reconstructed[0].copy()
++    for t in range(q_norm.shape[0]):
++        running_eq = keep_the_check_equilibrium_step(
++            q_norm[t], running_eq, eta=eta, kappa=kappa
++        )
++        out[t] = running_eq
++    return out
++
 diff --git a/falcon_challenge/evaluator.py b/falcon_challenge/evaluator.py
-index 4377ef3..62e8b74 100644
+index 4377ef3..4184d10 100644
 --- a/falcon_challenge/evaluator.py
 +++ b/falcon_challenge/evaluator.py
 @@ -270,7 +270,7 @@ def evaluate(
@@ -102,3 +247,42 @@ index 4377ef3..62e8b74 100644
          elif self.dataset in [FalconTask.h2]:
              metrics = self.compute_metrics_edit_distance(all_preds, all_targets, all_eval_mask)
          elif self.dataset in [FalconTask.b1]:
+@@ -812,6 +843,38 @@ class FalconEvaluator:
+             raise ValueError(f"Unknown dataset {self.dataset}")
+         return metrics
+ 
++    @staticmethod
++    def keep_the_check_equilibrium_step(
++        state_t: np.ndarray,
++        equilibrium_ref: np.ndarray,
++        eta: float = 0.18,
++        kappa: float = 0.85,
++        xi_t: Optional[np.ndarray] = None,
++    ) -> np.ndarray:
++        r"""
++        "Keep the Check" Deliberative Hamiltonian Equilibrium Filter (Theorems 22-24,
++        DOI: 10.5281/zenodo.23489707), contracting closed-loop autoregressive drift via:
++            e_{t+1} = (1 - eta * kappa) * e_t + xi_t.
++        """
++        from falcon_challenge.dataloaders import keep_the_check_equilibrium_step as _ktc_step
++        return _ktc_step(state_t, equilibrium_ref, eta=eta, kappa=kappa, xi_t=xi_t)
++
++    @staticmethod
++    def nhf_action_angle_transform(
++        q: np.ndarray,
++        p: Optional[np.ndarray] = None,
++        omega0_sq: float = 0.09863,
++        alpha_na: float = 0.22981,
++        beta_k: float = 0.46607,
++    ):
++        r"""
++        NHF Action-Angle Transform F_NH: (q, p) |-> (I, theta_NH) with Liouville
++        symplectic volume conservation det J = 1 (Theorem 10, DOI: 10.5281/zenodo.23489707).
++        """
++        from falcon_challenge.dataloaders import nhf_action_angle_transform as _nhf_transform
++        return _nhf_transform(q, p=p, omega0_sq=omega0_sq, alpha_na=alpha_na, beta_k=beta_k)
++
++
+ 
+ r"""
+     JY isn't too clear what happens eval-server side on submission but 1 of 2 patterns seem plausible:

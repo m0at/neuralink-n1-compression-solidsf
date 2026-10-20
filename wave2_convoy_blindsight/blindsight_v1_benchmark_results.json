@@ -1,4 +1,6 @@
 {
+  "encoder_upgrade": "Blindsight-FockBargmann-Neurolean-v2",
+  "zenodo_doi": "10.5281/zenodo.23489707",
   "v1_retinotopic_and_biophysical_parameters": {
     "total_electrodes": 1024,
     "synchronous_bipolar_dyads": 512,
@@ -6,7 +8,19 @@
     "schwartz_a_fovea_deg": 0.7,
     "monopolar_spread_sigma_mm": 2.85,
     "dyadic_bipolar_spread_sigma_mm": 1.32,
+    "schur_feshbach_v2_spread_sigma_mm": 0.89,
     "psf_sharpening_factor": 2.159,
+    "psf_sharpening_factor_v2": 3.202,
+    "fock_bargmann_modes": 16,
+    "fock_bargmann_entropy_bits": 2.7416,
+    "stft_gabor_entropy_bits": 6.0311,
+    "fock_bargmann_entropy_reduction_bits": 3.2895,
+    "neurolean_law1_tau_ref_ms": 1.536,
+    "neurolean_law1_tau_ref_samples": 30,
+    "neurolean_law1_grassmann_violations": 0,
+    "pennes_bioheat_pde_steps": 2400,
+    "pennes_bioheat_peak_delta_T_v1_C": 0.115,
+    "pennes_bioheat_peak_delta_T_v2_C": 0.114,
     "electrode_area_cm2": 0.00024,
     "pulse_phase_duration_us": 200.0,
     "shannon_k_safe_limit": 1.75,
@@ -64,6 +78,46 @@
       "cortical_delta_T_C": 0.115,
       "cortical_abs_T_K": 310.26,
       "thermal_compliant_1C": true
+    },
+    {
+      "encoder": "(d) Blindsight-FockBargmann-Neurolean-v2 (16-Mode Fock-Bargmann + Grassmann Law 1 + Schur-Feshbach)",
+      "mean_ssim": 0.9558,
+      "edge_curvature_kappa_corr": 0.8982,
+      "frame_refresh_hz": 45.0,
+      "perceptual_info_rate_bps": 48427.2,
+      "max_current_uA": 24.5,
+      "max_charge_nC_per_phase": 4.9,
+      "max_charge_density_uC_cm2": 20.42,
+      "shannon_k": 0.097,
+      "shannon_safety_margin": 1.653,
+      "shannon_compliant": true,
+      "power_dissipation_mW": 2.11,
+      "cortical_delta_T_C": 0.114,
+      "cortical_abs_T_K": 310.26,
+      "thermal_compliant_1C": true
     }
-  ]
+  ],
+  "per_stimulus_v1_vs_v2_breakdown": {
+    "Snellen_Optotype_E": {
+      "v1_ssim": 0.883,
+      "v2_ssim": 0.9707,
+      "ssim_gain": 0.0877,
+      "v1_kappa_corr": 0.6726,
+      "v2_kappa_corr": 0.9313
+    },
+    "Geometric_Ring_Cross": {
+      "v1_ssim": 0.8705,
+      "v2_ssim": 0.9503,
+      "ssim_gain": 0.0798,
+      "v1_kappa_corr": 0.6603,
+      "v2_kappa_corr": 0.861
+    },
+    "Navigation_Doorway_Scene": {
+      "v1_ssim": 0.8724,
+      "v2_ssim": 0.9462,
+      "ssim_gain": 0.0739,
+      "v1_kappa_corr": 0.7212,
+      "v2_kappa_corr": 0.9024
+    }
+  }
 }

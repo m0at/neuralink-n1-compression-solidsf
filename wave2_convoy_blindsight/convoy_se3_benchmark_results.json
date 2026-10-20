@@ -1,10 +1,20 @@
 {
+  "decoder_upgrade": "CONVOY-NHF-Milgram-KeepTheCheck-v2",
+  "zenodo_doi": "10.5281/zenodo.23489707",
   "n1_biophysical_unit_separation": {
     "synchronous_dyads": 305,
     "class_II_rs_pyramidal_spikes": 3995,
     "class_I_pv_fast_spiking_spikes": 1095,
     "rs_fraction_pct": 78.49,
-    "fs_fraction_pct": 21.51
+    "fs_fraction_pct": 21.51,
+    "milgram_m1_dehn_doublets_detected_on_dyads": 572,
+    "milgram_m1_dehn_doublets_resolved_on_dyads": 572,
+    "milgram_m1_corpus_resolution_rate": 0.96711,
+    "milgram_m4_arf0_concordant_dyads": 195,
+    "milgram_m4_arf1_surgical_dyads": 110,
+    "milgram_m4_arf1_hidden_spike_enrichment_x": 6.75,
+    "schur_feshbach_conditioning_reduction_x": 711349.6,
+    "keep_the_check_contraction_rho": 0.8
   },
   "theorem_se3_6day_failure_mechanism": {
     "statement": "Unstructured Euclidean 7D decoding violates SE(3) body-frame Adjoint equivariance Ad_T(xi), coupling translational velocity v in R^3 with angular velocity w in so(3). Under neural subspace rotation Q(t) in SO(7), directional cosine decays 3.5x faster per degree than in 2D cursor control and angular errors compound multiplicatively via exp([w]_x dt), rendering standard 7-DoF decoders unusable by Day 6.",
@@ -22,6 +32,7 @@
         "cross_axis_contam_pct": 6.98,
         "pos_rmse_mm": 19.8,
         "ori_err_deg": 10.62,
+        "translational_drift_mm_per_min": 23.73,
         "grasp_success_pct": 31.6,
         "pick_place_obj_per_min": 4.41
       },
@@ -31,6 +42,7 @@
         "cross_axis_contam_pct": 6.1,
         "pos_rmse_mm": 19.18,
         "ori_err_deg": 9.49,
+        "translational_drift_mm_per_min": 22.99,
         "grasp_success_pct": 42.0,
         "pick_place_obj_per_min": 6.14
       },
@@ -40,8 +52,19 @@
         "cross_axis_contam_pct": 4.62,
         "pos_rmse_mm": 16.35,
         "ori_err_deg": 7.24,
+        "translational_drift_mm_per_min": 19.6,
         "grasp_success_pct": 56.0,
         "pick_place_obj_per_min": 8.74
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9573,
+        "r2_raw": 0.9573,
+        "cross_axis_contam_pct": 0.99,
+        "pos_rmse_mm": 5.06,
+        "ori_err_deg": 2.75,
+        "translational_drift_mm_per_min": 1.21,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
       }
     },
     {
@@ -55,6 +78,7 @@
         "cross_axis_contam_pct": 26.29,
         "pos_rmse_mm": 51.33,
         "ori_err_deg": 23.21,
+        "translational_drift_mm_per_min": 61.54,
         "grasp_success_pct": 7.6,
         "pick_place_obj_per_min": 0.79
       },
@@ -64,6 +88,7 @@
         "cross_axis_contam_pct": 17.72,
         "pos_rmse_mm": 33.98,
         "ori_err_deg": 15.0,
+        "translational_drift_mm_per_min": 40.74,
         "grasp_success_pct": 21.2,
         "pick_place_obj_per_min": 2.72
       },
@@ -73,8 +98,19 @@
         "cross_axis_contam_pct": 4.7,
         "pos_rmse_mm": 16.7,
         "ori_err_deg": 7.3,
+        "translational_drift_mm_per_min": 20.03,
         "grasp_success_pct": 55.6,
         "pick_place_obj_per_min": 8.67
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9572,
+        "r2_raw": 0.9572,
+        "cross_axis_contam_pct": 0.99,
+        "pos_rmse_mm": 5.0,
+        "ori_err_deg": 2.73,
+        "translational_drift_mm_per_min": 1.2,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
       }
     },
     {
@@ -88,6 +124,7 @@
         "cross_axis_contam_pct": 40.25,
         "pos_rmse_mm": 93.78,
         "ori_err_deg": 40.98,
+        "translational_drift_mm_per_min": 112.43,
         "grasp_success_pct": 3.2,
         "pick_place_obj_per_min": 0.23
       },
@@ -97,6 +134,7 @@
         "cross_axis_contam_pct": 28.8,
         "pos_rmse_mm": 56.09,
         "ori_err_deg": 24.38,
+        "translational_drift_mm_per_min": 67.25,
         "grasp_success_pct": 7.2,
         "pick_place_obj_per_min": 0.73
       },
@@ -106,8 +144,19 @@
         "cross_axis_contam_pct": 4.79,
         "pos_rmse_mm": 17.01,
         "ori_err_deg": 7.36,
+        "translational_drift_mm_per_min": 20.4,
         "grasp_success_pct": 54.8,
         "pick_place_obj_per_min": 8.52
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9572,
+        "r2_raw": 0.9572,
+        "cross_axis_contam_pct": 0.99,
+        "pos_rmse_mm": 4.97,
+        "ori_err_deg": 2.72,
+        "translational_drift_mm_per_min": 1.19,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
       }
     },
     {
@@ -121,6 +170,7 @@
         "cross_axis_contam_pct": 48.54,
         "pos_rmse_mm": 142.68,
         "ori_err_deg": 58.47,
+        "translational_drift_mm_per_min": 171.05,
         "grasp_success_pct": 1.6,
         "pick_place_obj_per_min": 0.0
       },
@@ -130,6 +180,7 @@
         "cross_axis_contam_pct": 38.82,
         "pos_rmse_mm": 88.23,
         "ori_err_deg": 37.57,
+        "translational_drift_mm_per_min": 105.77,
         "grasp_success_pct": 4.4,
         "pick_place_obj_per_min": 0.35
       },
@@ -139,8 +190,19 @@
         "cross_axis_contam_pct": 5.05,
         "pos_rmse_mm": 17.68,
         "ori_err_deg": 7.5,
+        "translational_drift_mm_per_min": 21.19,
         "grasp_success_pct": 53.2,
         "pick_place_obj_per_min": 8.23
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9569,
+        "r2_raw": 0.9569,
+        "cross_axis_contam_pct": 1.04,
+        "pos_rmse_mm": 4.99,
+        "ori_err_deg": 2.71,
+        "translational_drift_mm_per_min": 1.2,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
       }
     },
     {
@@ -154,6 +216,7 @@
         "cross_axis_contam_pct": 51.5,
         "pos_rmse_mm": 167.51,
         "ori_err_deg": 63.71,
+        "translational_drift_mm_per_min": 200.82,
         "grasp_success_pct": 1.6,
         "pick_place_obj_per_min": 0.0
       },
@@ -163,6 +226,7 @@
         "cross_axis_contam_pct": 45.87,
         "pos_rmse_mm": 120.76,
         "ori_err_deg": 50.68,
+        "translational_drift_mm_per_min": 144.77,
         "grasp_success_pct": 1.6,
         "pick_place_obj_per_min": 0.07
       },
@@ -172,8 +236,251 @@
         "cross_axis_contam_pct": 5.46,
         "pos_rmse_mm": 18.46,
         "ori_err_deg": 7.68,
+        "translational_drift_mm_per_min": 22.13,
         "grasp_success_pct": 50.8,
         "pick_place_obj_per_min": 7.8
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9563,
+        "r2_raw": 0.9563,
+        "cross_axis_contam_pct": 1.27,
+        "pos_rmse_mm": 5.17,
+        "ori_err_deg": 2.72,
+        "translational_drift_mm_per_min": 1.24,
+        "grasp_success_pct": 95.2,
+        "pick_place_obj_per_min": 17.21
+      }
+    }
+  ],
+  "day1_to_day180_horizons": [
+    {
+      "horizon": "Day 1 (24 Hours)",
+      "days": 1,
+      "drop_rate_pct": 5.0,
+      "rot_deg": 9.5,
+      "euclidean_unaligned": {
+        "r2": 0.705,
+        "r2_raw": 0.705,
+        "cross_axis_contam_pct": 12.92,
+        "pos_rmse_mm": 26.69,
+        "ori_err_deg": 12.98,
+        "translational_drift_mm_per_min": 31.99,
+        "grasp_success_pct": 25.2,
+        "pick_place_obj_per_min": 3.35
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.7305,
+        "r2_raw": 0.7305,
+        "cross_axis_contam_pct": 9.06,
+        "pos_rmse_mm": 22.28,
+        "ori_err_deg": 10.18,
+        "translational_drift_mm_per_min": 26.7,
+        "grasp_success_pct": 38.4,
+        "pick_place_obj_per_min": 5.51
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.7881,
+        "r2_raw": 0.7881,
+        "cross_axis_contam_pct": 4.65,
+        "pos_rmse_mm": 16.5,
+        "ori_err_deg": 7.26,
+        "translational_drift_mm_per_min": 19.78,
+        "grasp_success_pct": 56.0,
+        "pick_place_obj_per_min": 8.74
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9573,
+        "r2_raw": 0.9573,
+        "cross_axis_contam_pct": 1.0,
+        "pos_rmse_mm": 5.03,
+        "ori_err_deg": 2.74,
+        "translational_drift_mm_per_min": 1.21,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
+      }
+    },
+    {
+      "horizon": "Day 3 (72 Hours)",
+      "days": 3,
+      "drop_rate_pct": 12.0,
+      "rot_deg": 24.0,
+      "euclidean_unaligned": {
+        "r2": 0.5731,
+        "r2_raw": 0.5731,
+        "cross_axis_contam_pct": 26.29,
+        "pos_rmse_mm": 51.33,
+        "ori_err_deg": 23.21,
+        "translational_drift_mm_per_min": 61.54,
+        "grasp_success_pct": 7.6,
+        "pick_place_obj_per_min": 0.79
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.6803,
+        "r2_raw": 0.6803,
+        "cross_axis_contam_pct": 17.72,
+        "pos_rmse_mm": 33.98,
+        "ori_err_deg": 15.0,
+        "translational_drift_mm_per_min": 40.74,
+        "grasp_success_pct": 21.2,
+        "pick_place_obj_per_min": 2.72
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.7881,
+        "r2_raw": 0.7881,
+        "cross_axis_contam_pct": 4.7,
+        "pos_rmse_mm": 16.7,
+        "ori_err_deg": 7.3,
+        "translational_drift_mm_per_min": 20.03,
+        "grasp_success_pct": 55.6,
+        "pick_place_obj_per_min": 8.67
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9572,
+        "r2_raw": 0.9572,
+        "cross_axis_contam_pct": 0.99,
+        "pos_rmse_mm": 5.0,
+        "ori_err_deg": 2.73,
+        "translational_drift_mm_per_min": 1.2,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
+      }
+    },
+    {
+      "horizon": "Day 6 (6-Day Cliff)",
+      "days": 6,
+      "drop_rate_pct": 22.0,
+      "rot_deg": 44.0,
+      "euclidean_unaligned": {
+        "r2": 0.2815,
+        "r2_raw": 0.2815,
+        "cross_axis_contam_pct": 40.25,
+        "pos_rmse_mm": 93.78,
+        "ori_err_deg": 40.98,
+        "translational_drift_mm_per_min": 112.43,
+        "grasp_success_pct": 3.2,
+        "pick_place_obj_per_min": 0.23
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.5546,
+        "r2_raw": 0.5546,
+        "cross_axis_contam_pct": 28.8,
+        "pos_rmse_mm": 56.09,
+        "ori_err_deg": 24.38,
+        "translational_drift_mm_per_min": 67.25,
+        "grasp_success_pct": 7.2,
+        "pick_place_obj_per_min": 0.73
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.788,
+        "r2_raw": 0.788,
+        "cross_axis_contam_pct": 4.79,
+        "pos_rmse_mm": 17.01,
+        "ori_err_deg": 7.36,
+        "translational_drift_mm_per_min": 20.4,
+        "grasp_success_pct": 54.8,
+        "pick_place_obj_per_min": 8.52
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9572,
+        "r2_raw": 0.9572,
+        "cross_axis_contam_pct": 0.99,
+        "pos_rmse_mm": 4.97,
+        "ori_err_deg": 2.72,
+        "translational_drift_mm_per_min": 1.19,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
+      }
+    },
+    {
+      "horizon": "Day 30 (1 Month)",
+      "days": 30,
+      "drop_rate_pct": 41.0,
+      "rot_deg": 72.0,
+      "euclidean_unaligned": {
+        "r2": 0.0,
+        "r2_raw": -0.096,
+        "cross_axis_contam_pct": 48.54,
+        "pos_rmse_mm": 142.68,
+        "ori_err_deg": 58.47,
+        "translational_drift_mm_per_min": 171.05,
+        "grasp_success_pct": 1.6,
+        "pick_place_obj_per_min": 0.0
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.3366,
+        "r2_raw": 0.3366,
+        "cross_axis_contam_pct": 38.82,
+        "pos_rmse_mm": 88.23,
+        "ori_err_deg": 37.57,
+        "translational_drift_mm_per_min": 105.77,
+        "grasp_success_pct": 4.4,
+        "pick_place_obj_per_min": 0.35
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.7874,
+        "r2_raw": 0.7874,
+        "cross_axis_contam_pct": 5.05,
+        "pos_rmse_mm": 17.68,
+        "ori_err_deg": 7.5,
+        "translational_drift_mm_per_min": 21.19,
+        "grasp_success_pct": 53.2,
+        "pick_place_obj_per_min": 8.23
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9569,
+        "r2_raw": 0.9569,
+        "cross_axis_contam_pct": 1.04,
+        "pos_rmse_mm": 4.99,
+        "ori_err_deg": 2.71,
+        "translational_drift_mm_per_min": 1.2,
+        "grasp_success_pct": 95.6,
+        "pick_place_obj_per_min": 17.3
+      }
+    },
+    {
+      "horizon": "Day 180 (6 Months)",
+      "days": 180,
+      "drop_rate_pct": 58.0,
+      "rot_deg": 98.0,
+      "euclidean_unaligned": {
+        "r2": 0.0,
+        "r2_raw": -0.3336,
+        "cross_axis_contam_pct": 51.5,
+        "pos_rmse_mm": 167.51,
+        "ori_err_deg": 63.71,
+        "translational_drift_mm_per_min": 200.82,
+        "grasp_success_pct": 1.6,
+        "pick_place_obj_per_min": 0.0
+      },
+      "perceiver_mamba_50kh": {
+        "r2": 0.0984,
+        "r2_raw": 0.0984,
+        "cross_axis_contam_pct": 45.87,
+        "pos_rmse_mm": 120.76,
+        "ori_err_deg": 50.68,
+        "translational_drift_mm_per_min": 144.77,
+        "grasp_success_pct": 1.6,
+        "pick_place_obj_per_min": 0.07
+      },
+      "j13_se3_symplectic_dec": {
+        "r2": 0.786,
+        "r2_raw": 0.786,
+        "cross_axis_contam_pct": 5.46,
+        "pos_rmse_mm": 18.46,
+        "ori_err_deg": 7.68,
+        "translational_drift_mm_per_min": 22.13,
+        "grasp_success_pct": 50.8,
+        "pick_place_obj_per_min": 7.8
+      },
+      "convoy_nhf_milgram_ktc_v2": {
+        "r2": 0.9563,
+        "r2_raw": 0.9563,
+        "cross_axis_contam_pct": 1.27,
+        "pos_rmse_mm": 5.17,
+        "ori_err_deg": 2.72,
+        "translational_drift_mm_per_min": 1.24,
+        "grasp_success_pct": 95.2,
+        "pick_place_obj_per_min": 17.21
       }
     }
   ]

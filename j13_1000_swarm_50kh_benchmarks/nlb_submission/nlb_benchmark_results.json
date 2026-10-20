@@ -2,49 +2,49 @@
   "official_nlb_evaluate_output": [
     {
       "mc_maze_split": {
-        "co-bps": 0.2830249639256975,
-        "vel R2": 0.9453580777366805
+        "co-bps": 0.1134134018531295,
+        "vel R2": 0.9456751374179428
       }
     },
     {
       "mc_rtt_split": {
-        "co-bps": 0.28703472977234074,
-        "vel R2": 0.950102082146115
+        "co-bps": 0.07102500800516788,
+        "vel R2": 0.951144554909771
       }
     },
     {
       "area2_bump_split": {
-        "co-bps": 0.37006265428318347,
-        "vel R2": 0.9575502040196617
+        "co-bps": 0.1842349580242294,
+        "vel R2": 0.9583319011297191
       }
     },
     {
       "dmfc_rsg_split": {
-        "co-bps": 0.25836058600768236,
-        "tp corr": -0.9921946031523606
+        "co-bps": 0.057045930390619524,
+        "tp corr": -0.9866447625773211
       }
     }
   ],
   "comparison": {
     "mc_maze": {
       "naive_co_bps": -0.0015,
-      "j13_worldtube_co_bps": 0.283,
-      "j13_per_neuron_co_bps": 0.2453
+      "j13_worldtube_co_bps": 0.1134,
+      "j13_per_neuron_co_bps": 0.0665
     },
     "mc_rtt": {
       "naive_co_bps": -0.0019,
-      "j13_worldtube_co_bps": 0.287,
-      "j13_per_neuron_co_bps": 0.2433
+      "j13_worldtube_co_bps": 0.071,
+      "j13_per_neuron_co_bps": 0.0056
     },
     "area2_bump": {
       "naive_co_bps": -0.0027,
-      "j13_worldtube_co_bps": 0.3701,
-      "j13_per_neuron_co_bps": 0.2981
+      "j13_worldtube_co_bps": 0.1842,
+      "j13_per_neuron_co_bps": 0.095
     },
     "dmfc_rsg": {
       "naive_co_bps": -0.0034,
-      "j13_worldtube_co_bps": 0.2584,
-      "j13_per_neuron_co_bps": 0.2207
+      "j13_worldtube_co_bps": 0.057,
+      "j13_per_neuron_co_bps": 0.001
     }
   }
 }
