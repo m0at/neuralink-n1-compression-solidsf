@@ -1,0 +1,42 @@
+{
+  "M1_Primate_ReachGrasp": {
+    "n_channels": 192,
+    "drift_severity": 0.35,
+    "r2_unaligned_frozen": -1.5204,
+    "r2_standard_embedding": -1.3281,
+    "r2_j13_voxelean_falcon": 0.6663,
+    "r2_gain_vs_frozen": 2.1867
+  },
+  "M2_Primate_FingerVel": {
+    "n_channels": 96,
+    "drift_severity": 0.42,
+    "r2_unaligned_frozen": -2.3564,
+    "r2_standard_embedding": -2.0444,
+    "r2_j13_voxelean_falcon": 0.3317,
+    "r2_gain_vs_frozen": 2.6881
+  },
+  "H1_Human_Motor_Cursor": {
+    "n_channels": 192,
+    "drift_severity": 0.48,
+    "r2_unaligned_frozen": -2.2817,
+    "r2_standard_embedding": -2.2169,
+    "r2_j13_voxelean_falcon": 0.4237,
+    "r2_gain_vs_frozen": 2.7054
+  },
+  "H2_Human_Handwriting_17Mo": {
+    "n_channels": 192,
+    "drift_severity": 0.62,
+    "r2_unaligned_frozen": -3.4466,
+    "r2_standard_embedding": -2.3657,
+    "r2_j13_voxelean_falcon": 0.6672,
+    "r2_gain_vs_frozen": 4.1138
+  },
+  "B1_Human_Speech_256Ch": {
+    "n_channels": 256,
+    "drift_severity": 0.45,
+    "r2_unaligned_frozen": -1.4636,
+    "r2_standard_embedding": -1.1647,
+    "r2_j13_voxelean_falcon": 0.5878,
+    "r2_gain_vs_frozen": 2.0514
+  }
+}

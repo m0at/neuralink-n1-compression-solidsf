@@ -1,0 +1,51 @@
+Loaded 743 files & verified 305 synchronous dyads in 5.60s
+Lag stats (us): median |dtau|=3.75, mean |dtau|=6.39, RMS(<=35us)=7.25, RMS(all)=11.20
+LFP corr stats: median |r_LFP|=0.4720, RMS r_LFP=0.5378, Q75 |r_LFP|=0.6974
+
+=== PART 1: CO-SMOOTHING (BITS/SPIKE) BENCHMARK ON N1 (305 SYNCHRONOUS DYADS) ===
+Negative-trough (< -4.5 MAD) totals across 305 dyads: Ch A=12929, Ch B=14036, V_cm=10720, V_diff=5082, Hidden V_diff=1328, V_cm rejected=8859
+
+--- Bin Width: 20ms ---
+  mono_apparent_uniform50_linear          : 0.1612 bits/spike
+  mono_apparent_perceiver_mamba           : 0.1847 bits/spike
+  mono_apparent_j13                       : 0.5456 bits/spike
+  mono_block_heldout_uniform50_linear     : 0.0622 bits/spike
+  mono_block_heldout_perceiver_mamba      : 0.1052 bits/spike
+  mono_block_heldout_j13                  : 0.5456 bits/spike
+  vdiff_single_unit_uniform50_linear      : 0.2265 bits/spike
+  vdiff_single_unit_perceiver_mamba       : 0.3944 bits/spike
+  vdiff_single_unit_j13                   : 1.5249 bits/spike
+  vdiff_hidden_uniform50_linear           : 0.2069 bits/spike
+  vdiff_hidden_perceiver_mamba            : 0.2457 bits/spike
+  vdiff_hidden_j13                        : 1.7851 bits/spike
+  test_spikes_mono                        : 3601
+  test_spikes_vdiff                       : 1482
+  test_spikes_vdiff_hidden                : 381
+
+--- Bin Width: 5ms ---
+  mono_apparent_uniform50_linear          : 0.5126 bits/spike
+  mono_apparent_perceiver_mamba           : 0.5882 bits/spike
+  mono_apparent_j13                       : 1.3143 bits/spike
+  mono_block_heldout_uniform50_linear     : 0.1172 bits/spike
+  mono_block_heldout_perceiver_mamba      : 0.1997 bits/spike
+  mono_block_heldout_j13                  : 1.3143 bits/spike
+  vdiff_single_unit_uniform50_linear      : 0.4799 bits/spike
+  vdiff_single_unit_perceiver_mamba       : 0.8975 bits/spike
+  vdiff_single_unit_j13                   : 2.7729 bits/spike
+  vdiff_hidden_uniform50_linear           : 0.2928 bits/spike
+  vdiff_hidden_perceiver_mamba            : 0.3501 bits/spike
+  vdiff_hidden_j13                        : 2.9821 bits/spike
+  test_spikes_mono                        : 3591
+  test_spikes_vdiff                       : 1480
+  test_spikes_vdiff_hidden                : 381
+
+Symplectic Spike-Orbit Action scale/offset invariance CV across 64 N1 dyads: max CV = 1.197e-06
+
+=== PART 2: FALCON & NEURALINK WEBGRID MULTI-MONTH ZERO-SHOT DRIFT BENCHMARK ===
+  Day 0 (Calibrated)     | Drop=   0%, Rot=  0.0deg | R^2: Frozen=0.7998 (raw +0.7998), 50kh-PM=0.7982, J1.3=0.9940 | Webgrid BPS: Frozen= 9.85, 50kh-PM=11.32, J1.3=12.94 | Teleport/min: Frozen=372.0, 50kh-PM=336.0, J1.3= 0.0
+  Day 1 (24 Hours)       | Drop=   8%, Rot= 22.0deg | R^2: Frozen=0.5610 (raw +0.5610), 50kh-PM=0.7789, J1.3=0.9939 | Webgrid BPS: Frozen= 6.55, 50kh-PM=11.02, J1.3=12.94 | Teleport/min: Frozen=660.0, 50kh-PM=396.0, J1.3= 0.0
+  Day 7 (1 Week)         | Drop=  22%, Rot= 42.0deg | R^2: Frozen=0.0258 (raw +0.0258), 50kh-PM=0.6968, J1.3=0.9931 | Webgrid BPS: Frozen= 0.19, 50kh-PM= 9.75, J1.3=12.93 | Teleport/min: Frozen=1008.0, 50kh-PM=540.0, J1.3= 0.0
+  Day 30 (1 Month)       | Drop=  41%, Rot= 68.0deg | R^2: Frozen=0.0000 (raw -0.4103), 50kh-PM=0.5922, J1.3=0.9904 | Webgrid BPS: Frozen= 0.00, 50kh-PM= 8.15, J1.3=12.89 | Teleport/min: Frozen=1476.0, 50kh-PM=660.0, J1.3= 0.0
+  Day 600 (20 Months)    | Drop=  68%, Rot=108.0deg | R^2: Frozen=0.0000 (raw -0.8130), 50kh-PM=0.2914, J1.3=0.9787 | Webgrid BPS: Frozen= 0.00, 50kh-PM= 3.74, J1.3=12.73 | Teleport/min: Frozen=1752.0, 50kh-PM=1008.0, J1.3= 0.0
+
+Saved verified JSON results to /Users/stu/solidsf-scratch/neuralink-j13-1000-swarm/division1_50kh_dyadic_masking/division1_2_benchmark_results.json in 7.40s
