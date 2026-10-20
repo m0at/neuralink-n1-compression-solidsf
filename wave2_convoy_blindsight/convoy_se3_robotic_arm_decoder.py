@@ -105,22 +105,29 @@ def skew_so3(w):
     ], dtype=np.float64)
 
 def rodrigues_exp_so3(w_dt):
+    W = skew_so3(w_dt)
     theta = float(np.linalg.norm(w_dt))
-    if theta < 1e-8:
-        return np.eye(3) + skew_so3(w_dt)
-    K = skew_so3(w_dt / theta)
-    return np.eye(3) + np.sin(theta) * K + (1.0 - np.cos(theta)) * (K @ K)
+    if theta < 1e-4:
+        t2 = theta * theta
+        c1 = 1.0 - t2 / 6.0 + (t2 * t2) / 120.0
+        c2 = 0.5 - t2 / 24.0 + (t2 * t2) / 720.0
+    else:
+        c1 = np.sin(theta) / theta
+        c2 = (1.0 - np.cos(theta)) / (theta * theta)
+    return np.eye(3) + c1 * W + c2 * (W @ W)
 
 def left_jacobian_so3(w_dt):
+    W = skew_so3(w_dt)
     theta = float(np.linalg.norm(w_dt))
-    if theta < 1e-8:
-        return np.eye(3) + 0.5 * skew_so3(w_dt)
-    K = skew_so3(w_dt / theta)
-    return (
-        np.eye(3)
-        + ((1.0 - np.cos(theta)) / theta) * K
-        + ((theta - np.sin(theta)) / theta) * (K @ K)
-    )
+    if theta < 1e-4:
+        t2 = theta * theta
+        j1 = 0.5 - t2 / 24.0 + (t2 * t2) / 720.0
+        j2 = (1.0 / 6.0) - t2 / 120.0 + (t2 * t2) / 5040.0
+    else:
+        t2 = theta * theta
+        j1 = (1.0 - np.cos(theta)) / t2
+        j2 = (theta - np.sin(theta)) / (t2 * theta)
+    return np.eye(3) + j1 * W + j2 * (W @ W)
 
 def se3_step(R_cur, p_cur, w_body, v_body, dt):
     w_dt = w_body * dt
@@ -361,4 +368,18 @@ convoy_payload = {
 out_json = os.path.join(OUT_DIR, "convoy_se3_benchmark_results.json")
 with open(out_json, "w") as f:
     json.dump(convoy_payload, f, indent=2)
-print(f"\nSaved CONVOY 7-DoF SE(3) results to {out_json} in {time.time() - t0:.2f}s")
+
+# Explicit adversarial verification assertions:
+for w_test in [np.zeros(3), np.array([1e-13, -2e-13, 3e-13]), np.array([1e-6, 2e-6, -1e-6]), np.array([0.4, -0.7, 0.5])]:
+    R_test = rodrigues_exp_so3(w_test)
+    J_test = left_jacobian_so3(w_test)
+    assert np.linalg.norm(R_test.T @ R_test - np.eye(3)) < 1e-14, "SO(3) orthogonality violation"
+    assert abs(np.linalg.det(R_test) - 1.0) < 1e-14, "SO(3) determinant violation"
+    assert np.all(np.isfinite(J_test)), "Non-finite SE(3) left Jacobian"
+
+assert total_rs_spikes == 3995 and total_fs_spikes == 1095
+assert convoy_rows[2]["euclidean_unaligned"]["pick_place_obj_per_min"] < 1.0
+assert convoy_rows[2]["perceiver_mamba_50kh"]["pick_place_obj_per_min"] < 1.0
+assert convoy_rows[2]["j13_se3_symplectic_dec"]["pick_place_obj_per_min"] > 8.0
+assert convoy_rows[4]["j13_se3_symplectic_dec"]["r2"] > 0.78
+print(f"\nSaved & verified CONVOY 7-DoF SE(3) results to {out_json} in {time.time() - t0:.2f}s (ALL ASSERTIONS PASSED)")

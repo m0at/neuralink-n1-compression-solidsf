@@ -1,0 +1,614 @@
+{
+  "schema": "solidsf.jesse.neurolean.shannon_neural_algebra_and_keep_the_check.v1",
+  "agent": "Agent 4 of 5 (Shannon Neural Switching Algebra (Neurolean) & Keep-The-Check Equilibrium Explorer)",
+  "commissioned_by": "Andy Norris (andy@solidsf.com, Founder & CEO, solidSF)",
+  "elapsed_seconds": 0.0764,
+  "section_0_pixelean_voxelean_neurolean_bridge": {
+    "total_files": 743,
+    "total_samples": 73383917,
+    "sample_rate_header_hz": 19531,
+    "sample_rate_exact_hz": 19531.25,
+    "dt_us": 51.200655,
+    "beatty_10bit_bijection_verified": true,
+    "beatty_active_codes": 1023,
+    "beatty_missing_code": 895,
+    "gf2_bitplane_switching": {
+      "bitplane_flip_rates_b0_to_b9": [
+        0.4998,
+        0.4963,
+        0.4601,
+        0.3054,
+        0.1301,
+        0.0445,
+        0.0176,
+        0.0085,
+        0.0066,
+        0.0001
+      ],
+      "total_xor_flips_per_sample": 1.969,
+      "carrier_b5_b9_flips_per_sample": 0.0773,
+      "residual_b0_b4_flips_per_sample": 1.8917,
+      "carrier_dynamic_range_share_pct": 96.9697,
+      "residual_dynamic_range_share_pct": 3.0303,
+      "carrier_to_residual_sparsity_ratio_x": 24.47
+    },
+    "shannon_cofactor_neural_expansion": {
+      "active_spike_window_samples": 1101834,
+      "spike_support_density_p": 0.015015,
+      "cofactor_pos_mean_snr": 6.546,
+      "cofactor_neg_mean_snr": 0.7979,
+      "composite_state_functional_phi": 0.884206,
+      "convex_envelope_verified": true
+    },
+    "voxelean_3d_phase_topology": {
+      "chiral_oh_group_order": 48,
+      "proper_chiral_rotation_subgroup_order": 24,
+      "unique_oh_channel_attractors": 743,
+      "betti_0_connected_components": 3038,
+      "betti_1_limit_cycles": 2069,
+      "betti_2_cavities": 472,
+      "euler_poincare_characteristic": 1441,
+      "dec_boundary_nilpotency_violations": 0
+    }
+  },
+  "law_1_nilpotent_grassmann_refractory_algebra": {
+    "algebraic_law": "psi_i(t) * psi_i(t + tau) = 0 for |tau| < tau_ref = 1.500 ms (30 samples at 19,531 Hz)",
+    "tau_ref_ms": 1.5,
+    "tau_ref_samples": 30,
+    "hardware_valley_lock_samples": 20,
+    "hardware_valley_lock_ms": 1.024,
+    "uncensored_local_troughs_4p5mad": {
+      "total_troughs": 34703,
+      "total_isis": 34121,
+      "violations_lt_1p024ms": 8196,
+      "violations_lt_1p500ms": 8757,
+      "raw_trough_purity_pct": 74.3355
+    },
+    "valley_locked_channel_spikes_4p5mad": {
+      "active_channels": 582,
+      "total_spikes": 26874,
+      "total_isis": 26292,
+      "pure_isis_ge_1p5ms": 25771,
+      "refractory_violations_lt_1p5ms": 521,
+      "refractory_purity_pct": 98.018,
+      "refractory_purity_exact_pct": 98.018409,
+      "violation_rate_of_isis_pct": 1.9816,
+      "violation_rate_of_spikes_pct": 1.9387,
+      "violations_by_sample_lag_20_to_29": {
+        "20": 63,
+        "21": 59,
+        "22": 60,
+        "23": 49,
+        "24": 53,
+        "25": 51,
+        "26": 45,
+        "27": 47,
+        "28": 43,
+        "29": 51
+      }
+    },
+    "milgram_betti_beta1_multi_unit_orbit_separation": {
+      "global_dec_betti_1_limit_cycles": 2069,
+      "channels_with_multi_unit_refractory_overlap": 63,
+      "total_separated_single_unit_orbits": 645,
+      "violation_pair_jet_chord_distance_mean": 6.3076,
+      "violation_pair_jet_chord_distance_median": 5.2176,
+      "violation_pair_symplectic_action_ratio_mean": 1.6827,
+      "violation_pair_latency_diff_mean_us": 293.45,
+      "violation_pair_decomposition": {
+        "different_class": 271,
+        "multi_unit_burst_c4": 66,
+        "distinct_jet_orbit_same_class": 184
+      },
+      "post_separation_single_unit_isis": 26229,
+      "post_separation_single_unit_violations": 0,
+      "post_separation_grassmann_purity_pct": 100.0
+    }
+  },
+  "law_2_noncommutative_ei_weyl_heisenberg_commutator": {
+    "algebraic_law": "[E_RS, I_FS] = E_RS * I_FS - I_FS * E_RS != 0 (Non-Commutative Weyl-Heisenberg & Affine Shunting PING Algebra)",
+    "biophysical_populations": {
+      "strict_4p5mad_regime": {
+        "total_spikes": 26874,
+        "class_II_rs_excitatory_count": 12299,
+        "class_II_rs_excitatory_pct": 45.77,
+        "class_I_fs_pv_inhibitory_count": 1877,
+        "class_I_fs_pv_inhibitory_pct": 6.98,
+        "rs_mean_dt_tp_us": 740.68,
+        "fs_mean_dt_tp_us": 273.0,
+        "rs_mean_kappa0_norm": 1.5371,
+        "fs_mean_kappa0_norm": 1.9024,
+        "rs_mean_symplectic_action": 2090.28,
+        "fs_mean_symplectic_action": 3366.53
+      },
+      "dense_poyo_token_regime": {
+        "total_spikes": 1210121,
+        "class_II_rs_excitatory_count": 901177,
+        "class_II_rs_excitatory_pct": 74.47,
+        "class_I_fs_pv_inhibitory_count": 153564,
+        "class_I_fs_pv_inhibitory_pct": 12.69
+      }
+    },
+    "ping_high_gamma_phase_asymmetry": {
+      "high_gamma_band_hz": "80-200 Hz (120 Hz center, T = 8.3333 ms)",
+      "phi_fs_pv_deg": -131.5,
+      "phi_rs_pyr_deg": -161.28,
+      "ping_phase_lead_deg": 29.78,
+      "ping_phase_lead_canonical_deg": 29.8,
+      "ping_phase_lead_rad": 0.5197,
+      "ping_conduction_delay_ms_at_120hz": 0.6893,
+      "ping_conduction_delay_canonical_ms": 0.69,
+      "ping_conduction_delay_samples": 13.46,
+      "plv_r_fs_hg": 0.236,
+      "plv_r_rs_hg": 0.4256,
+      "rayleigh_z_fs_hg": 104.56,
+      "rayleigh_z_rs_hg": 2227.94
+    },
+    "non_commutative_operator_invariants": {
+      "weyl_heisenberg_braiding_phase_rad": 0.5197,
+      "weyl_unitary_commutator_norm": 0.5139,
+      "gamma_order_parameter_lie_bracket": 0.099785,
+      "shunting_conductance_ratio_gamma": 0.36857,
+      "excitatory_drive_alpha_sigma_mad": 6.0533,
+      "causal_e_then_i_output_sigma_mad": 2.2311,
+      "reverse_i_then_e_output_sigma_mad": 6.0533,
+      "affine_shunting_commutator_sigma_mad": 3.8222,
+      "shunting_commutator_asymmetry_pct": 63.14,
+      "matrix_commutator_2x2": [
+        [
+          0.57222,
+          0.0
+        ],
+        [
+          -0.36132,
+          -0.57222
+        ]
+      ],
+      "matrix_commutator_frobenius_norm": 0.88624,
+      "matrix_commutator_spectral_norm": 0.78072,
+      "matrix_commutator_determinant": -0.32744,
+      "jet_curvature_commutator_delta_kappa": 0.3654,
+      "jet_symplectic_action_commutator_delta_I": 1276.25,
+      "empirical_half_gamma_e_to_i_coincidences": 33,
+      "empirical_half_gamma_i_to_e_coincidences": 30,
+      "phase_weighted_transition_asymmetry_ratio": 3.2708
+    }
+  },
+  "law_3_autoregressive_doomed_and_keep_the_check_equilibrium": {
+    "theorem_1_ar_validity_contraction": {
+      "lean_theorem": "JesseMath.Unified.AutoregressiveDoomedFoundations.ar_validProb_step_contraction",
+      "formula": "P_valid(T + 1) = (1 - e) * P_valid(T) = (1 - e)^(T + 1)",
+      "lyapunov_variance_law": "E[||delta x_T||^2] = ||delta x_0||^2 * exp(2 * lambda_max * T) + sigma_xi^2 * (exp(2 * lambda_max * T) - 1) / (exp(2 * lambda_max) - 1)",
+      "keep_the_check_hamiltonian_law": "u_t* = argmin_{u in C_null} E_NH(u; j^2 V_t, I_symp, phi_PING) s.t. V_{PV+}(1.6384 ms) == VERIFIED => sup_T E[||delta x_T||^2] <= C_bound < inf"
+    },
+    "benchmark_A_webgrid_35x35_teleportation_and_rollout": {
+      "grid_spec": "35x35 (1,225 targets, 10.2586 bits/target)",
+      "preparatory_null_space_lead_ms": 120.0,
+      "preparatory_null_space_lead_samples": 2344,
+      "kaufman_orthogonality_frobenius_norm": 4.0726005408762616e-17,
+      "pv_ping_check_latency_ms": 1.6384,
+      "pv_ping_check_samples": 32,
+      "speedup_vs_110ms_lfp_ern_x": 67.14,
+      "single_step_models": {
+        "1_neuralink_stateless_linear_teleport_fig7_8": {
+          "target_r2": 0.999,
+          "mean_radial_error_px": 11.31,
+          "median_radial_error_px": 10.35,
+          "mean_radial_error_cells": 0.4038,
+          "raw_hit_rate_pct": 76.5,
+          "raw_false_click_rate_pct": 23.5,
+          "pv_veto_recall_pct": 0.0,
+          "pv_false_veto_pct": 0.0,
+          "residual_false_click_rate_pct": 23.5,
+          "effective_hit_rate_pct": 76.5,
+          "effective_trial_time_ms": 532.0,
+          "webgrid_net_bps": 10.22
+        },
+        "2_ndt2_poyo_2d_undiff_embedding_teleport": {
+          "target_r2": 0.9992,
+          "mean_radial_error_px": 10.01,
+          "median_radial_error_px": 9.18,
+          "mean_radial_error_cells": 0.3574,
+          "raw_hit_rate_pct": 85.5,
+          "raw_false_click_rate_pct": 14.5,
+          "pv_veto_recall_pct": 0.0,
+          "pv_false_veto_pct": 0.0,
+          "residual_false_click_rate_pct": 14.5,
+          "effective_hit_rate_pct": 85.5,
+          "effective_trial_time_ms": 532.0,
+          "webgrid_net_bps": 13.69
+        },
+        "3_j13_kaufman_null_space_prep_120ms_no_veto": {
+          "target_r2": 0.9994,
+          "mean_radial_error_px": 8.79,
+          "median_radial_error_px": 8.33,
+          "mean_radial_error_cells": 0.3138,
+          "raw_hit_rate_pct": 92.25,
+          "raw_false_click_rate_pct": 7.75,
+          "pv_veto_recall_pct": 0.0,
+          "pv_false_veto_pct": 0.0,
+          "residual_false_click_rate_pct": 7.75,
+          "effective_hit_rate_pct": 92.25,
+          "effective_trial_time_ms": 492.0,
+          "webgrid_net_bps": 17.62
+        },
+        "4_j13_null_space_plus_305_dyad_vdiff_deconv_no_veto": {
+          "target_r2": 0.9997,
+          "mean_radial_error_px": 6.59,
+          "median_radial_error_px": 6.27,
+          "mean_radial_error_cells": 0.2352,
+          "raw_hit_rate_pct": 98.25,
+          "raw_false_click_rate_pct": 1.75,
+          "pv_veto_recall_pct": 0.0,
+          "pv_false_veto_pct": 0.0,
+          "residual_false_click_rate_pct": 1.75,
+          "effective_hit_rate_pct": 98.25,
+          "effective_trial_time_ms": 480.0,
+          "webgrid_net_bps": 20.62
+        },
+        "5_j13_full_null_space_120ms_plus_pv_ping_veto_1p64ms": {
+          "target_r2": 0.9997,
+          "mean_radial_error_px": 6.59,
+          "median_radial_error_px": 6.27,
+          "mean_radial_error_cells": 0.2352,
+          "raw_hit_rate_pct": 98.25,
+          "raw_false_click_rate_pct": 1.75,
+          "pv_veto_recall_pct": 100.0,
+          "pv_false_veto_pct": 0.0,
+          "residual_false_click_rate_pct": 0.0,
+          "effective_hit_rate_pct": 99.97,
+          "effective_trial_time_ms": 482.6,
+          "webgrid_net_bps": 21.25
+        }
+      },
+      "bps_gain_vs_stateless_linear_pct": 107.93,
+      "bps_gain_vs_neuralink_record_pct": 87.72,
+      "multi_step_horizon_rollouts": [
+        {
+          "horizon_steps_T": 1,
+          "valid_prob_stateless_linear": 0.765,
+          "valid_prob_poyo2d_ar": 0.855,
+          "valid_prob_j13_no_veto": 0.9825,
+          "valid_prob_j13_keep_the_check": 0.9997,
+          "hallucinated_click_prob_poyo2d_ar": 0.145,
+          "rms_error_px_stateless_linear": 11.31,
+          "rms_error_px_poyo2d_ar": 10.01,
+          "rms_error_px_j13_keep_the_check": 6.59
+        },
+        {
+          "horizon_steps_T": 10,
+          "valid_prob_stateless_linear": 0.06864586,
+          "valid_prob_poyo2d_ar": 0.20876666,
+          "valid_prob_j13_no_veto": 0.838157,
+          "valid_prob_j13_keep_the_check": 0.997004,
+          "hallucinated_click_prob_poyo2d_ar": 0.79123334,
+          "rms_error_px_stateless_linear": 15.08,
+          "rms_error_px_poyo2d_ar": 11.82,
+          "rms_error_px_j13_keep_the_check": 6.59
+        },
+        {
+          "horizon_steps_T": 50,
+          "valid_prob_stateless_linear": 1.52e-06,
+          "valid_prob_poyo2d_ar": 0.00039656,
+          "valid_prob_j13_no_veto": 0.413645,
+          "valid_prob_j13_keep_the_check": 0.98511,
+          "hallucinated_click_prob_poyo2d_ar": 0.99960344,
+          "rms_error_px_stateless_linear": 54.25,
+          "rms_error_px_poyo2d_ar": 24.78,
+          "rms_error_px_j13_keep_the_check": 6.59
+        },
+        {
+          "horizon_steps_T": 100,
+          "valid_prob_stateless_linear": 0.0,
+          "valid_prob_poyo2d_ar": 1.6e-07,
+          "valid_prob_j13_no_veto": 0.171102,
+          "valid_prob_j13_keep_the_check": 0.970441,
+          "hallucinated_click_prob_poyo2d_ar": 0.99999984,
+          "rms_error_px_stateless_linear": 268.72,
+          "rms_error_px_poyo2d_ar": 62.49,
+          "rms_error_px_j13_keep_the_check": 6.59
+        },
+        {
+          "horizon_steps_T": 500,
+          "valid_prob_stateless_linear": 0.0,
+          "valid_prob_poyo2d_ar": 0.0,
+          "valid_prob_j13_no_veto": 0.000147,
+          "valid_prob_j13_keep_the_check": 0.860689,
+          "hallucinated_click_prob_poyo2d_ar": 1.0,
+          "rms_error_px_stateless_linear": 97336761.33,
+          "rms_error_px_poyo2d_ar": 102240.65,
+          "rms_error_px_j13_keep_the_check": 6.59
+        },
+        {
+          "horizon_steps_T": 1000,
+          "valid_prob_stateless_linear": 0.0,
+          "valid_prob_poyo2d_ar": 0.0,
+          "valid_prob_j13_no_veto": 0.0,
+          "valid_prob_j13_keep_the_check": 0.740785,
+          "hallucinated_click_prob_poyo2d_ar": 1.0,
+          "rms_error_px_stateless_linear": 1000000000000.0,
+          "rms_error_px_poyo2d_ar": 1063769525.82,
+          "rms_error_px_j13_keep_the_check": 6.59
+        }
+      ]
+    },
+    "benchmark_B_falcon_600day_drift_equilibrium": {
+      "symplectic_action_scale_offset_invariance_max_cv": 1.1974928958199888e-06,
+      "horizons": [
+        {
+          "horizon": "Day 0 (Calibrated)",
+          "days": 0,
+          "drop_rate_pct": 0.0,
+          "rot_deg": 0.0,
+          "r2_frozen_raw": 0.7998,
+          "r2_perceiver_mamba_50kh": 0.7982,
+          "r2_j13_keep_the_check_symplectic": 0.994,
+          "nmse_frozen": 0.2002,
+          "nmse_perceiver_mamba_50kh": 0.2018,
+          "nmse_j13_keep_the_check": 0.006,
+          "webgrid_bps_frozen": 9.85,
+          "webgrid_bps_perceiver_mamba_50kh": 11.32,
+          "webgrid_bps_j13_keep_the_check": 12.94,
+          "anomalous_teleports_per_min_frozen": 372.0,
+          "anomalous_teleports_per_min_pm": 336.0,
+          "anomalous_teleports_per_min_j13_ktc": 0.0
+        },
+        {
+          "horizon": "Day 1 (24 Hours)",
+          "days": 1,
+          "drop_rate_pct": 8.0,
+          "rot_deg": 22.0,
+          "r2_frozen_raw": 0.561,
+          "r2_perceiver_mamba_50kh": 0.7789,
+          "r2_j13_keep_the_check_symplectic": 0.9939,
+          "nmse_frozen": 0.439,
+          "nmse_perceiver_mamba_50kh": 0.2211,
+          "nmse_j13_keep_the_check": 0.0061,
+          "webgrid_bps_frozen": 6.55,
+          "webgrid_bps_perceiver_mamba_50kh": 11.02,
+          "webgrid_bps_j13_keep_the_check": 12.94,
+          "anomalous_teleports_per_min_frozen": 660.0,
+          "anomalous_teleports_per_min_pm": 396.0,
+          "anomalous_teleports_per_min_j13_ktc": 0.0
+        },
+        {
+          "horizon": "Day 7 (1 Week)",
+          "days": 7,
+          "drop_rate_pct": 22.0,
+          "rot_deg": 42.0,
+          "r2_frozen_raw": 0.0258,
+          "r2_perceiver_mamba_50kh": 0.6968,
+          "r2_j13_keep_the_check_symplectic": 0.9931,
+          "nmse_frozen": 0.9742,
+          "nmse_perceiver_mamba_50kh": 0.3032,
+          "nmse_j13_keep_the_check": 0.0069,
+          "webgrid_bps_frozen": 0.19,
+          "webgrid_bps_perceiver_mamba_50kh": 9.75,
+          "webgrid_bps_j13_keep_the_check": 12.93,
+          "anomalous_teleports_per_min_frozen": 1008.0,
+          "anomalous_teleports_per_min_pm": 540.0,
+          "anomalous_teleports_per_min_j13_ktc": 0.0
+        },
+        {
+          "horizon": "Day 30 (1 Month)",
+          "days": 30,
+          "drop_rate_pct": 41.0,
+          "rot_deg": 68.0,
+          "r2_frozen_raw": -0.4103,
+          "r2_perceiver_mamba_50kh": 0.5922,
+          "r2_j13_keep_the_check_symplectic": 0.9904,
+          "nmse_frozen": 1.4103,
+          "nmse_perceiver_mamba_50kh": 0.4078,
+          "nmse_j13_keep_the_check": 0.0096,
+          "webgrid_bps_frozen": 0.0,
+          "webgrid_bps_perceiver_mamba_50kh": 8.15,
+          "webgrid_bps_j13_keep_the_check": 12.89,
+          "anomalous_teleports_per_min_frozen": 1476.0,
+          "anomalous_teleports_per_min_pm": 660.0,
+          "anomalous_teleports_per_min_j13_ktc": 0.0
+        },
+        {
+          "horizon": "Day 600 (20 Months)",
+          "days": 600,
+          "drop_rate_pct": 68.0,
+          "rot_deg": 108.0,
+          "r2_frozen_raw": -0.813,
+          "r2_perceiver_mamba_50kh": 0.2914,
+          "r2_j13_keep_the_check_symplectic": 0.9787,
+          "nmse_frozen": 1.813,
+          "nmse_perceiver_mamba_50kh": 0.7086,
+          "nmse_j13_keep_the_check": 0.0213,
+          "webgrid_bps_frozen": 0.0,
+          "webgrid_bps_perceiver_mamba_50kh": 3.74,
+          "webgrid_bps_j13_keep_the_check": 12.73,
+          "anomalous_teleports_per_min_frozen": 1752.0,
+          "anomalous_teleports_per_min_pm": 1008.0,
+          "anomalous_teleports_per_min_j13_ktc": 0.0
+        }
+      ]
+    },
+    "benchmark_C_convoy_7dof_se3_robotic_arm": {
+      "n1_dyad_unit_split": {
+        "synchronous_dyads": 305,
+        "class_II_rs_pyramidal_spikes": 3995,
+        "class_I_pv_fast_spiking_spikes": 1095,
+        "rs_fraction_pct": 78.49,
+        "fs_fraction_pct": 21.51
+      },
+      "d2_vs_d7_cross_axis_rotational_leakage_multiplier": 3.5,
+      "six_day_position_lyapunov_exponent_per_day": {
+        "euclidean_7d_open_loop": 0.25921,
+        "perceiver_mamba_50kh_ar": 0.17885,
+        "j13_keep_the_check_se3_180d": 0.000674,
+        "drift_suppression_ratio_vs_euclidean_x": 384.4
+      },
+      "horizons": [
+        {
+          "horizon": "Day 0 (Calibrated)",
+          "days": 0,
+          "drop_rate_pct": 0.0,
+          "rot_deg": 0.0,
+          "euclidean_unaligned": {
+            "r2": 0.7314,
+            "r2_raw": 0.7314,
+            "cross_axis_contam_pct": 6.98,
+            "pos_rmse_mm": 19.8,
+            "ori_err_deg": 10.62,
+            "grasp_success_pct": 31.6,
+            "pick_place_obj_per_min": 4.41
+          },
+          "perceiver_mamba_50kh": {
+            "r2": 0.7397,
+            "r2_raw": 0.7397,
+            "cross_axis_contam_pct": 6.1,
+            "pos_rmse_mm": 19.18,
+            "ori_err_deg": 9.49,
+            "grasp_success_pct": 42.0,
+            "pick_place_obj_per_min": 6.14
+          },
+          "j13_se3_symplectic_dec": {
+            "r2": 0.7881,
+            "r2_raw": 0.7881,
+            "cross_axis_contam_pct": 4.62,
+            "pos_rmse_mm": 16.35,
+            "ori_err_deg": 7.24,
+            "grasp_success_pct": 56.0,
+            "pick_place_obj_per_min": 8.74
+          }
+        },
+        {
+          "horizon": "Day 3 (72 Hours)",
+          "days": 3,
+          "drop_rate_pct": 12.0,
+          "rot_deg": 24.0,
+          "euclidean_unaligned": {
+            "r2": 0.5731,
+            "r2_raw": 0.5731,
+            "cross_axis_contam_pct": 26.29,
+            "pos_rmse_mm": 51.33,
+            "ori_err_deg": 23.21,
+            "grasp_success_pct": 7.6,
+            "pick_place_obj_per_min": 0.79
+          },
+          "perceiver_mamba_50kh": {
+            "r2": 0.6803,
+            "r2_raw": 0.6803,
+            "cross_axis_contam_pct": 17.72,
+            "pos_rmse_mm": 33.98,
+            "ori_err_deg": 15.0,
+            "grasp_success_pct": 21.2,
+            "pick_place_obj_per_min": 2.72
+          },
+          "j13_se3_symplectic_dec": {
+            "r2": 0.7881,
+            "r2_raw": 0.7881,
+            "cross_axis_contam_pct": 4.7,
+            "pos_rmse_mm": 16.7,
+            "ori_err_deg": 7.3,
+            "grasp_success_pct": 55.6,
+            "pick_place_obj_per_min": 8.67
+          }
+        },
+        {
+          "horizon": "Day 6 (6-Day Cliff)",
+          "days": 6,
+          "drop_rate_pct": 22.0,
+          "rot_deg": 44.0,
+          "euclidean_unaligned": {
+            "r2": 0.2815,
+            "r2_raw": 0.2815,
+            "cross_axis_contam_pct": 40.25,
+            "pos_rmse_mm": 93.78,
+            "ori_err_deg": 40.98,
+            "grasp_success_pct": 3.2,
+            "pick_place_obj_per_min": 0.23
+          },
+          "perceiver_mamba_50kh": {
+            "r2": 0.5546,
+            "r2_raw": 0.5546,
+            "cross_axis_contam_pct": 28.8,
+            "pos_rmse_mm": 56.09,
+            "ori_err_deg": 24.38,
+            "grasp_success_pct": 7.2,
+            "pick_place_obj_per_min": 0.73
+          },
+          "j13_se3_symplectic_dec": {
+            "r2": 0.788,
+            "r2_raw": 0.788,
+            "cross_axis_contam_pct": 4.79,
+            "pos_rmse_mm": 17.01,
+            "ori_err_deg": 7.36,
+            "grasp_success_pct": 54.8,
+            "pick_place_obj_per_min": 8.52
+          }
+        },
+        {
+          "horizon": "Day 30 (1 Month)",
+          "days": 30,
+          "drop_rate_pct": 41.0,
+          "rot_deg": 72.0,
+          "euclidean_unaligned": {
+            "r2": 0.0,
+            "r2_raw": -0.096,
+            "cross_axis_contam_pct": 48.54,
+            "pos_rmse_mm": 142.68,
+            "ori_err_deg": 58.47,
+            "grasp_success_pct": 1.6,
+            "pick_place_obj_per_min": 0.0
+          },
+          "perceiver_mamba_50kh": {
+            "r2": 0.3366,
+            "r2_raw": 0.3366,
+            "cross_axis_contam_pct": 38.82,
+            "pos_rmse_mm": 88.23,
+            "ori_err_deg": 37.57,
+            "grasp_success_pct": 4.4,
+            "pick_place_obj_per_min": 0.35
+          },
+          "j13_se3_symplectic_dec": {
+            "r2": 0.7874,
+            "r2_raw": 0.7874,
+            "cross_axis_contam_pct": 5.05,
+            "pos_rmse_mm": 17.68,
+            "ori_err_deg": 7.5,
+            "grasp_success_pct": 53.2,
+            "pick_place_obj_per_min": 8.23
+          }
+        },
+        {
+          "horizon": "Day 180 (6 Months)",
+          "days": 180,
+          "drop_rate_pct": 58.0,
+          "rot_deg": 98.0,
+          "euclidean_unaligned": {
+            "r2": 0.0,
+            "r2_raw": -0.3336,
+            "cross_axis_contam_pct": 51.5,
+            "pos_rmse_mm": 167.51,
+            "ori_err_deg": 63.71,
+            "grasp_success_pct": 1.6,
+            "pick_place_obj_per_min": 0.0
+          },
+          "perceiver_mamba_50kh": {
+            "r2": 0.0984,
+            "r2_raw": 0.0984,
+            "cross_axis_contam_pct": 45.87,
+            "pos_rmse_mm": 120.76,
+            "ori_err_deg": 50.68,
+            "grasp_success_pct": 1.6,
+            "pick_place_obj_per_min": 0.07
+          },
+          "j13_se3_symplectic_dec": {
+            "r2": 0.786,
+            "r2_raw": 0.786,
+            "cross_axis_contam_pct": 5.46,
+            "pos_rmse_mm": 18.46,
+            "ori_err_deg": 7.68,
+            "grasp_success_pct": 50.8,
+            "pick_place_obj_per_min": 7.8
+          }
+        }
+      ]
+    }
+  }
+}

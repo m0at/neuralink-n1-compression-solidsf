@@ -1,8 +1,8 @@
 diff --git a/src/datarepo/export/static_site/src/lib/codegen.ts b/src/datarepo/export/static_site/src/lib/codegen.ts
-index 1bad3ec..e8f9010 100644
+index 1bad3ec..b44daf7 100644
 --- a/src/datarepo/export/static_site/src/lib/codegen.ts
 +++ b/src/datarepo/export/static_site/src/lib/codegen.ts
-@@ -67,27 +67,53 @@ function escapeSqlLikeValue(value: string): string {
+@@ -67,27 +67,54 @@ function escapeSqlLikeValue(value: string): string {
  // Renders a single scalar (non-array) partition value as a SQL literal, quoting and escaping
  // it when it is a string regardless of what type_annotation claims (e.g. "large_string" or a
  // date-typed string column still need quotes).
@@ -19,6 +19,7 @@ index 1bad3ec..e8f9010 100644
 +    return value ? 'TRUE' : 'FALSE'
 +  }
 +  if (typeof value === 'number' && Number.isFinite(value)) {
++    if (Number.isInteger(value) && !Number.isSafeInteger(value)) return value.toExponential()
 +    return Object.is(value, -0) ? '-0.0' : `${value}`
 +  }
 +  return null
@@ -59,7 +60,7 @@ index 1bad3ec..e8f9010 100644
    return `${partition.column_name} ${operator} ${value}`
  }
  
-@@ -140,7 +166,11 @@ export function genTableCode({ catalog, database, table, formatSqlFilter }: GenT
+@@ -140,7 +167,11 @@ export function genTableCode({ catalog, database, table, formatSqlFilter }: GenT
  
    if (table.partitions.length !== 0) {
      if (formatSqlFilter) {
@@ -72,3 +73,29 @@ index 1bad3ec..e8f9010 100644
        // JSON string escaping produces a valid Python double-quoted string literal for any
        // value (including one containing embedded '"' or '\', which would otherwise end the
        // Python string early), since Python accepts the same \", \\, and \uXXXX escapes JSON does.
+diff --git a/test/export/test_sql_filter_codegen.py b/test/export/test_sql_filter_codegen.py
+index bf77ebb..190ad41 100644
+--- a/test/export/test_sql_filter_codegen.py
++++ b/test/export/test_sql_filter_codegen.py
+@@ -203,3 +203,21 @@ class TestSqlFilterCodegen:
+             ]
+         )
+         assert _extract_filters_arg(code) == "name is null"
++
++    @pytest.mark.parametrize(
++        "partition",
++        [
++            {"column_name": "name", "operator": "=", "type_annotation": "str", "value": None},
++            {"column_name": "id", "operator": "in", "type_annotation": "int", "value": []},
++            {"column_name": "id", "operator": "in", "type_annotation": "int", "value": [1, None]},
++            {"column_name": "meta", "operator": "=", "type_annotation": "str", "value": {"nested": 1}},
++            {"column_name": "tags", "operator": "includes", "type_annotation": "list", "value": "x"},
++            {"column_name": "tags", "operator": "includes any", "type_annotation": "list", "value": ["x"]},
++            {"column_name": "tags", "operator": "includes all", "type_annotation": "list", "value": ["x"]},
++        ],
++    )
++    def test_unsupported_sql_filter_value_emits_placeholder(
++        self, generate_sql_filter, partition
++    ):
++        code = generate_sql_filter([partition])
++        assert code == "# cannot render this filter value"

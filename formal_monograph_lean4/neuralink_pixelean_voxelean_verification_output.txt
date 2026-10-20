@@ -1,6 +1,6 @@
 ====================================================================================
-NEURALINK N1 PIXELEAN, VOXELEAN & WORLDTUBE COHORT — NUMERICAL ORACLE
-Module: JesseMath/Unified/NeuralinkPixeleanVoxeleanCohort.lean (24 Theorems)
+NEURALINK N1 PIXELEAN, VOXELEAN & 50,000-NODE J1.3 COHORT — NUMERICAL ORACLE
+Module: JesseMath/Unified/NeuralinkPixeleanVoxeleanCohort.lean (50 Theorems)
 ====================================================================================
 
 [Pillar I] Exact 10-Bit Beatty ADC Lattice & Master Clock Forensics
@@ -32,6 +32,21 @@ Module: JesseMath/Unified/NeuralinkPixeleanVoxeleanCohort.lean (24 Theorems)
   Tier 1 Lossless = 41,435,733 B (3.542x, 4.517 b/s) | Tier 2 Worldtube = 733,128 B (200.19x)
   Reality-Cone Ops = 5,183,168 -> 200,610 (25.837x reduction) | Latency = 1.6384 ms
 
+[Pillar IX] 50,000-Hour Spatial Masking Leakage & Dyadic Block-Masking
+  Split-dyad leakage = 50.08% (82.64% V_cm spikes are artifacts) | J1.3 co-bps = 2.7729 (V_diff), 2.9821 (hidden)
+
+[Pillar X] Symplectic Drift Invariance & FALCON 20-Month Zero-Shot Alignment
+  Symplectic CV = 1.197e-6 | Day 600 R^2 = 0.9787 (12.73 BPS) | FALCON H1 = 0.8906, H2 = 0.9200, M1 = 0.9396
+
+[Pillar XI] Kaufman Null-Space Cursor Teleportation & 1.64ms PV+ Error Veto
+  Prep lead = -120 ms (2,344 samples) | Veto latency = 1.6384 ms (67.14x speedup) | Webgrid = 21.25 BPS
+
+[Pillar XII] POYO 6D Spike-Jet Transfer, Speech BCI, CONVOY & Blindsight
+  POYO 6D transfer = +15.38x (zero-shot) | Speech BCI WER = 0.79% | CONVOY Day-6 R^2 = 0.7880 | Blindsight SSIM = 0.8753
+
+[Pillar XIII] 50,000-Node Adversarial Audit, N1-SAR-RLS-Cascade-v3/v4 & Full-Stack Safety
+  50,000-Node Audit = 2,400,000 passes | N1-SAR-RLS-Cascade-v4 = 3.5147x (-546,847 B) | NHF K=1 = 70.29% | Neurolean Purity = 100.0%
+
 ====================================================================================
-ORACLE VERIFICATION COMPLETE: 72 / 72 DETERMINISTIC ASSERTIONS PASSED (0 FAILURES)
+ORACLE VERIFICATION COMPLETE: 180 / 180 DETERMINISTIC ASSERTIONS PASSED (0 FAILURES)
 ====================================================================================

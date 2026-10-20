@@ -14,7 +14,7 @@ index a413d78..d5d34a1 100644
                  eval_mask = ~nwbfile.acquisition['Blacklist'].data[:].astype(bool)
                  timestamps = nwbfile.acquisition['OpenLoopKinematics'].offset + np.arange(kin.shape[0]) * .02
 diff --git a/falcon_challenge/evaluator.py b/falcon_challenge/evaluator.py
-index 4377ef3..5fb4d01 100644
+index 4377ef3..62e8b74 100644
 --- a/falcon_challenge/evaluator.py
 +++ b/falcon_challenge/evaluator.py
 @@ -270,7 +270,7 @@ def evaluate(
@@ -45,20 +45,60 @@ index 4377ef3..5fb4d01 100644
  
          # Spectrogram-trials lengths (across sessions)
          trial_len_before_mask, trial_len_after_mask, frequencies = 880, 700, 158
-@@ -796,14 +797,14 @@ class FalconEvaluator:
+@@ -751,6 +752,9 @@ class FalconEvaluator:
+ 
+     @staticmethod
+     def compute_metrics_edit_distance(preds, targets, eval_mask):
++        if isinstance(preds, dict):
++            preds = [preds[k] for k in preds]
++            targets = [targets[k] for k in targets]
+         if len(preds) != len(targets):
+             raise ValueError(f"Targets and predictions have different lengths: {len(targets)} vs {len(preds)}.")
+ 
+@@ -796,14 +800,41 @@ class FalconEvaluator:
              "CER Std.": np.std(cers),
          }
  
 -    def compute_metrics(self, all_preds, all_targets, all_eval_mask=None):
 +    def compute_metrics(self, all_preds, all_targets, all_eval_mask=None, dset_lens=None):
          r"""
-             all_preds: array of shape (n_timesteps, k_dim)
-             all_targets: array of shape (n_timesteps, k_dim)
-             all_eval_mask: array of shape (n_timesteps, k_dim). True if we should evaluate this timestep.
+-            all_preds: array of shape (n_timesteps, k_dim)
+-            all_targets: array of shape (n_timesteps, k_dim)
+-            all_eval_mask: array of shape (n_timesteps, k_dim). True if we should evaluate this timestep.
++            all_preds: array of shape (n_timesteps, k_dim) or dict keyed by datafile hash
++            all_targets: array of shape (n_timesteps, k_dim) or dict keyed by datafile hash
++            all_eval_mask: array of shape (n_timesteps,) or dict keyed by datafile hash
          """
          if self.dataset in [FalconTask.h1, FalconTask.m1, FalconTask.m2]:
 -            metrics = self.compute_metrics_regression(all_preds, all_targets, all_eval_mask, verbose=self.verbose)
-+            metrics = self.compute_metrics_regression(all_preds, all_targets, all_eval_mask, dset_lens, verbose=self.verbose)
++            if isinstance(all_preds, dict):
++                keys = list(all_preds.keys())
++                if dset_lens is None:
++                    dset_lens = defaultdict(list)
++                    for k in keys:
++                        session_id = reduce_key(k)
++                        mask_k = all_eval_mask[k] if all_eval_mask is not None else np.ones(len(all_preds[k]), dtype=bool)
++                        dset_lens[session_id].append(mask_k.shape[0])
++                preds_arr = np.concatenate([all_preds[k] for k in keys])
++                mask_arr = (
++                    np.concatenate([all_eval_mask[k] for k in keys]).astype(bool)
++                    if all_eval_mask is not None
++                    else np.ones(len(preds_arr), dtype=bool)
++                )
++                targets_arr = np.concatenate([all_targets[k] for k in keys])
++                if targets_arr.shape[0] == mask_arr.shape[0] and not np.all(mask_arr):
++                    targets_arr = targets_arr[mask_arr]
++                metrics = self.compute_metrics_regression(preds_arr, targets_arr, mask_arr, dset_lens, verbose=self.verbose)
++            else:
++                if all_eval_mask is None:
++                    all_eval_mask = np.ones(len(all_preds), dtype=bool)
++                else:
++                    all_eval_mask = np.asarray(all_eval_mask, dtype=bool)
++                if dset_lens is None:
++                    dset_lens = {"all": [len(all_eval_mask)]}
++                if all_targets.shape[0] == all_eval_mask.shape[0] and not np.all(all_eval_mask):
++                    all_targets = all_targets[all_eval_mask]
++                metrics = self.compute_metrics_regression(all_preds, all_targets, all_eval_mask, dset_lens, verbose=self.verbose)
          elif self.dataset in [FalconTask.h2]:
              metrics = self.compute_metrics_edit_distance(all_preds, all_targets, all_eval_mask)
          elif self.dataset in [FalconTask.b1]:

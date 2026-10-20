@@ -177,6 +177,47 @@ int main(void) {
     assert(mock_cs_low == false);
     printf("[PASS] Test 4: SPI Bus Timeout & Unphysical Kelvin Plausibility Guard\n");
 
-    printf("ALL 4 NEURALINK FIRMWARE TEST SUITES PASSED (0 FAILURES).\n");
+    /* Test 5: Exact Boundary Hysteresis (309000 mK / 310000 mK / 311000 mK) & Millikelvin Alpha-Beta Convergence */
+    reset_mock();
+    assert(nlk_hw_init() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    mock_temp_kelvin = 309; /* 309,000 mK (36 C exact lower boundary) */
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_get_filtered_temp_millikelvin() == 309000);
+    assert(nlk_hw_get_temp_slope_millikelvin_per_sec() == 0);
+    assert(nlk_hw_get_gpio4_state() == false);
+
+    mock_temp_kelvin = 311; /* 311,000 mK (38 C exact upper boundary) */
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_get_gpio4_state() == true);
+    /* Alpha-Beta step: pred = 309000, resid = +2000 -> T_hat = 309000 + (3*2000)/8 = 309750 mK, rate = +125 mK/s */
+    assert(nlk_hw_get_filtered_temp_millikelvin() == 309750);
+    assert(nlk_hw_get_temp_slope_millikelvin_per_sec() == 125);
+    printf("[PASS] Test 5: Exact 309000 mK / 311000 mK Boundary Hysteresis & Fixed-Point Alpha-Beta Step\n");
+
+    /* Test 6: 0xB9 Deep-Sleep Wakeup Recovery & Double-Uninit Rejection */
+    assert(nlk_hw_uninit() == NLK_ERR_CODE_SUCCESS);
+    assert(mock_sensor_awake == false);
+    assert(nlk_hw_get_gpio4_state() == false);
+    /* Second consecutive uninit while already sleeping must return INVALID_STATE without SPI traffic */
+    uint32_t tx_before = mock_spi_tx_count;
+    assert(nlk_hw_uninit() == NLK_ERR_CODE_INVALID_STATE);
+    assert(mock_spi_tx_count == tx_before);
+    /* Re-wake from 0xB9 deep sleep via nlk_hw_init() without resetting mock hardware */
+    assert(nlk_hw_init() == NLK_ERR_CODE_SUCCESS);
+    assert(mock_sensor_awake == true);
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    mock_temp_kelvin = 310;
+    assert(nlk_hw_tick() == NLK_ERR_CODE_SUCCESS);
+    assert(nlk_hw_get_last_temp_kelvin() == 310);
+    assert(nlk_hw_get_filtered_temp_millikelvin() == 310000);
+    assert(nlk_hw_uninit() == NLK_ERR_CODE_SUCCESS);
+    printf("[PASS] Test 6: 0xB9 Deep-Sleep Wakeup Recovery & Double-Uninit Guard\n");
+
+    printf("ALL 6 NEURALINK FIRMWARE TEST SUITES PASSED (0 FAILURES).\n");
     return 0;
 }

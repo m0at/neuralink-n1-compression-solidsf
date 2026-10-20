@@ -193,7 +193,9 @@ nlk_err_code nlk_hw_tick(void) {
                 return err;
             }
 
-            int16_t temp_k = (int16_t)(((uint16_t)rx[2] << 8u) | (uint16_t)rx[3]);
+            uint16_t raw_u16 = (uint16_t)(((uint16_t)rx[2] << 8u) | (uint16_t)rx[3]);
+            int16_t temp_k = 0;
+            memcpy(&temp_k, &raw_u16, sizeof(temp_k));
             if (temp_k < NLK_TEMP_MIN_PLAUSIBLE_K || temp_k > NLK_TEMP_MAX_PLAUSIBLE_K) {
                 return NLK_ERR_CODE_SENSOR_FAULT;
             }
@@ -216,6 +218,8 @@ nlk_err_code nlk_hw_tick(void) {
             /*
              * Part 2: Fixed-point Alpha-Beta kinematic filter (alpha = 3/8, beta = 1/16, dt = 1s)
              * Tracks smoothed temperature T_hat (mK) and thermal slope dT/dt (mK/s).
+             * Since temp_k is bounded in [200, 400] K, meas_mk is in [200000, 400000] mK,
+             * guaranteeing zero 32-bit signed integer overflow in 3 * resid_mk.
              */
             int32_t meas_mk = (int32_t)temp_k * 1000;
             if (!g_filter_initialized) {
@@ -239,7 +243,7 @@ nlk_err_code nlk_hw_tick(void) {
 }
 
 nlk_err_code nlk_hw_uninit(void) {
-    if (g_state == NLK_FSM_UNINITIALIZED) {
+    if (g_state == NLK_FSM_UNINITIALIZED || g_state == NLK_FSM_SLEEPING) {
         return NLK_ERR_CODE_INVALID_STATE;
     }
 

@@ -26,6 +26,7 @@ import json
 import math
 import random
 from dataclasses import asdict, dataclass
+from pathlib import Path
 from typing import List
 
 
@@ -136,8 +137,17 @@ def main():
             f"[+{((r_ssf.bps / r_base.bps) - 1.0)*100:.1f}%]"
         )
 
-    with open("webgrid_benchmark_results.json", "w", encoding="utf-8") as f:
+    out_path = Path(__file__).resolve().parent / "webgrid_benchmark_results.json"
+    with out_path.open("w", encoding="utf-8") as f:
         json.dump([asdict(r) for r in results], f, indent=2)
+
+    assert len(results) == 8
+    for i in range(0, len(results), 2):
+        r_b, r_s = results[i], results[i + 1]
+        assert r_s.bps > r_b.bps * 1.45, f"Expected >45% BPS gain on {r_s.grid_size}x{r_s.grid_size}"
+        assert r_s.misses_60s <= r_b.misses_60s
+    assert neuralink_webgrid_bps(-5, 60, 3) == 0.0
+    print(f"[PASS] Verified all 4 Webgrid configurations and saved to {out_path}")
 
 
 if __name__ == "__main__":

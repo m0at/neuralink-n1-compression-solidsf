@@ -98,6 +98,26 @@ def encode_nl_image(msg: NLImageMsg) -> bytes:
     return bytes(out)
 
 
+def _skip_unknown_field(buf: bytes, pos: int, wire_type: int) -> int:
+    if wire_type == 0:
+        _, pos = _decode_varint(buf, pos)
+        return pos
+    if wire_type == 1:
+        if pos + 8 > len(buf):
+            raise ValueError("Truncated 64-bit protobuf field")
+        return pos + 8
+    if wire_type == 2:
+        length, pos = _decode_varint(buf, pos)
+        if length < 0 or pos + length > len(buf):
+            raise ValueError("Invalid protobuf length-delimited field")
+        return pos + length
+    if wire_type == 5:
+        if pos + 4 > len(buf):
+            raise ValueError("Truncated 32-bit protobuf field")
+        return pos + 4
+    raise ValueError(f"Unsupported protobuf wire type: {wire_type}")
+
+
 def decode_nl_image(buf: bytes) -> NLImageMsg:
     msg = NLImageMsg()
     pos = 0
@@ -121,13 +141,7 @@ def decode_nl_image(buf: bytes) -> NLImageMsg:
             v, pos = _decode_varint(buf, pos)
             msg.height = int(v)
         else:
-            if wire_type == 0:
-                _, pos = _decode_varint(buf, pos)
-            elif wire_type == 2:
-                length, pos = _decode_varint(buf, pos)
-                pos += length
-            else:
-                raise ValueError(f"Unsupported protobuf wire type: {wire_type}")
+            pos = _skip_unknown_field(buf, pos, wire_type)
     return msg
 
 
@@ -161,7 +175,7 @@ def decode_rotate_request(buf: bytes) -> NLImageRotateRequestMsg:
             req.image = decode_nl_image(buf[pos : pos + length])
             pos += length
         else:
-            raise ValueError("Malformed NLImageRotateRequest")
+            pos = _skip_unknown_field(buf, pos, wire_type)
     return req
 
 

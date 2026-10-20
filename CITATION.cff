@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this formalization, mathematical cohort analysis, or telemetry codec in your research, please cite it as below."
+title: "Exact Silicon Forensics, Blind Multi-Channel Noise Rejection, Neural Algebra (Neurolean), Neural Hamiltonian-Fourier (NHF) Calculus, and 50,000-Node J1.3 Swarm Foundation Pretraining for Neuralink N1 Intracortical Telemetry"
+authors:
+  - name: "solidSF Research Team: using Jesse v1.2.16"
+date-released: 2026-10-19
+version: "2.0.0"
+license: "MIT"
+keywords:
+  - Neuralink N1
+  - Intracortical Brain-Computer Interface
+  - Pixelean and Voxelean Algebra
+  - Neurolean Switching Algebra
+  - Neural Hamiltonian-Fourier Calculus
+  - Reality Combs and Milgram Topological Surgery
+  - Lean 4 Formal Verification
+  - Lossless Neural Telemetry Compression
+doi: "10.5281/zenodo.23488106"

@@ -1,5 +1,5 @@
 CC      ?= clang
-CFLAGS  := -std=c99 -O2 -Wall -Wextra -Werror -ffunction-sections -fdata-sections
+CFLAGS  := -std=c99 -O2 -Wall -Wextra -Werror -pedantic -ffunction-sections -fdata-sections
 
 all: test_nlk_hw
 

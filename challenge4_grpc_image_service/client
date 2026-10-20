@@ -38,7 +38,7 @@ def call_rpc(host: str, port: int, method: str, payload: bytes) -> bytes:
 
 def load_image_to_proto(path: str) -> NLImageMsg:
     with Image.open(path) as im:
-        if im.mode in ("L", "1"):
+        if im.mode in ("L", "1", "I", "I;16", "F"):
             im_conv = im.convert("L")
             color = False
         else:

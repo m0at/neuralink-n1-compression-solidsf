@@ -1,2 +1,2 @@
 #!/bin/sh
-exec "$(dirname "$0")/encode" --decode "$@"
+exec "${0%/*}/encode" --decode "$@"

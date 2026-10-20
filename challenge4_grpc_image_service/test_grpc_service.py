@@ -142,7 +142,73 @@ def main():
         assert rejected, "Server failed to reject malformed NLImage payload!"
         print("[PASS] Test 4: Malformed NLImage Protobuf Payload Gracefully Rejected")
 
-        print("ALL 4 NEURALINK GRPC IMAGE SERVICE TEST SUITES PASSED (0 FAILURES).")
+        # 5. Verify Rectangular Non-Square (5x3 RGB and 4x7 Grayscale) 90/180/270 CCW vs PIL.Image.Transpose
+        rect_w, rect_h = 5, 3
+        rect_rgb_bytes = bytes(range(1, rect_w * rect_h * 3 + 1))
+        pil_rgb = Image.frombytes("RGB", (rect_w, rect_h), rect_rgb_bytes)
+        msg_rect_rgb = NLImageMsg(color=True, data=rect_rgb_bytes, width=rect_w, height=rect_h)
+        for rot_enum, pil_op, exp_size in [
+            (Rotation.NINETY_DEG, Image.Transpose.ROTATE_90, (rect_h, rect_w)),
+            (Rotation.ONE_EIGHTY_DEG, Image.Transpose.ROTATE_180, (rect_w, rect_h)),
+            (Rotation.TWO_SEVENTY_DEG, Image.Transpose.ROTATE_270, (rect_h, rect_w)),
+        ]:
+            rot_resp = decode_nl_image(
+                call_rpc(
+                    host,
+                    port,
+                    "RotateImage",
+                    encode_rotate_request(NLImageRotateRequestMsg(rotation=rot_enum, image=msg_rect_rgb)),
+                )
+            )
+            pil_rot = pil_rgb.transpose(pil_op)
+            assert (rot_resp.width, rot_resp.height) == exp_size
+            assert rot_resp.data == pil_rot.tobytes(), f"Mismatch vs PIL for {rot_enum.name}"
+
+        gray_w, gray_h = 4, 7
+        gray_bytes = bytes(range(10, 10 + gray_w * gray_h))
+        pil_gray = Image.frombytes("L", (gray_w, gray_h), gray_bytes)
+        msg_rect_gray = NLImageMsg(color=False, data=gray_bytes, width=gray_w, height=gray_h)
+        for rot_enum, pil_op, exp_size in [
+            (Rotation.NINETY_DEG, Image.Transpose.ROTATE_90, (gray_h, gray_w)),
+            (Rotation.TWO_SEVENTY_DEG, Image.Transpose.ROTATE_270, (gray_h, gray_w)),
+        ]:
+            rot_resp = decode_nl_image(
+                call_rpc(
+                    host,
+                    port,
+                    "RotateImage",
+                    encode_rotate_request(NLImageRotateRequestMsg(rotation=rot_enum, image=msg_rect_gray)),
+                )
+            )
+            pil_rot = pil_gray.transpose(pil_op)
+            assert (rot_resp.width, rot_resp.height) == exp_size
+            assert rot_resp.data == pil_rot.tobytes()
+        print("[PASS] Test 5: Rectangular (5x3 RGB & 4x7 Grayscale) 90/180/270 CCW Exact Parity vs PIL")
+
+        # 6. Verify MeanFilter on 1x1, 1x5, 5x1, and 3-channel RGB (zero cross-channel bleed & zero uint8 overflow)
+        msg_1x1 = NLImageMsg(color=False, data=bytes([255]), width=1, height=1)
+        resp_1x1 = decode_nl_image(call_rpc(host, port, "MeanFilter", encode_nl_image(msg_1x1)))
+        assert resp_1x1.width == 1 and resp_1x1.height == 1 and resp_1x1.data == bytes([255])
+
+        row_1x5 = bytes([10, 20, 30, 40, 50])
+        msg_1x5 = NLImageMsg(color=False, data=row_1x5, width=5, height=1)
+        resp_1x5 = decode_nl_image(call_rpc(host, port, "MeanFilter", encode_nl_image(msg_1x5)))
+        assert resp_1x5.width == 5 and resp_1x5.height == 1
+        assert list(resp_1x5.data) == [15, 20, 30, 40, 45]
+
+        msg_5x1 = NLImageMsg(color=False, data=row_1x5, width=1, height=5)
+        resp_5x1 = decode_nl_image(call_rpc(host, port, "MeanFilter", encode_nl_image(msg_5x1)))
+        assert resp_5x1.width == 1 and resp_5x1.height == 5
+        assert list(resp_5x1.data) == [15, 20, 30, 40, 45]
+
+        # 3-channel RGB: R=255 everywhere, G=0 everywhere, B=100 everywhere -> zero cross-channel bleed
+        rgb_iso = bytes([255, 0, 100] * 12)
+        msg_rgb_iso = NLImageMsg(color=True, data=rgb_iso, width=4, height=3)
+        resp_rgb_iso = decode_nl_image(call_rpc(host, port, "MeanFilter", encode_nl_image(msg_rgb_iso)))
+        assert resp_rgb_iso.data == rgb_iso
+        print("[PASS] Test 6: MeanFilter 1x1, 1x5, 5x1 & 3-Channel RGB Isolation / Overflow Invariance")
+
+        print("ALL 6 NEURALINK GRPC IMAGE SERVICE TEST SUITES PASSED (0 FAILURES).")
     finally:
         srv_proc.terminate()
         srv_proc.wait(timeout=5)

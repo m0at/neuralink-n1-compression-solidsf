@@ -1,0 +1,594 @@
+{
+  "title": "solidSF & Jesse Unification Tool Atlas for Neuralink",
+  "author": "Andy Norris <andy@solidsf.com>",
+  "summary_counts": {
+    "unification_pillars": 12,
+    "lean4_modules_scanned": 30,
+    "lean4_verified_theorems": 562,
+    "lean4_domain_structures": 54,
+    "solidsf_total_rust_crates": 217,
+    "neuralink_direct_rust_crates": 23,
+    "neuralink_direct_rust_loc": 403071
+  },
+  "lean4_unification_corpus": {
+    "total_lean_modules_scanned": 30,
+    "total_verified_theorems_and_lemmas": 562,
+    "total_domain_structures_and_inductives": 54,
+    "total_definitions": 234,
+    "total_lean_lines": 13039,
+    "unification_pillars": [
+      {
+        "pillar_id": "UNIF-01",
+        "name": "Pixelean & Voxelean Spatio-Temporal Worldtube Calculus",
+        "lean_module": "PixeleanVoxeleanCalculus.lean",
+        "neuralink_application": "10-bit Beatty ADC lattice bijection, synchronous dyadic electrode pairing (305 pairs), and Discrete Exterior Calculus d^2 = 0 across cortical tissue."
+      },
+      {
+        "pillar_id": "UNIF-02",
+        "name": "Reality Comb I: Schur-Feshbach Effective Hamiltonian Wavelet Comb",
+        "lean_module": "SchurFeshbachWaveletComb.lean",
+        "neuralink_application": "Exact coarse-graining of fast single-unit spikes (>300 Hz, Q-subspace) into slow LFP High-Gamma carrier (<300 Hz, P-subspace) via self-energy Sigma(E) = H_PQ (E - H_QQ)^{-1} H_QP."
+      },
+      {
+        "pillar_id": "UNIF-03",
+        "name": "Reality Comb II: Metriplectic Morrison-Grmela Dissipative Scale Comb",
+        "lean_module": "MetriplecticScaleComb.lean",
+        "neuralink_application": "Couples reversible symplectic Na+/K+ spike orbit dynamics {F, H_NH} with irreversible metabolic ATP/ion-pump entropy production (F, S)_M under Pennes bioheat limits."
+      },
+      {
+        "pillar_id": "UNIF-04",
+        "name": "Reality Comb III: Mellin-Tauberian Spectral Trace Comb",
+        "lean_module": "MellinTauberianTraceComb.lean",
+        "neuralink_application": "Extracts power-law 1/f^alpha cortical avalanche scaling exponents and Tauberian high-frequency spike tail asymptotics across the 73.38M N1 samples."
+      },
+      {
+        "pillar_id": "UNIF-05",
+        "name": "Reality Comb IV: Hodge-Holonomy Defect & Non-Abelian Gauge Comb",
+        "lean_module": "HodgeHolonomyDefectComb.lean",
+        "neuralink_application": "Measures non-zero curl / axonal phase-lag holonomy defect around cortical electrode loops vs curl-free volume-conducted LFP artefacts."
+      },
+      {
+        "pillar_id": "UNIF-06",
+        "name": "Hamiltonian Scale Comb & Action-Angle Phase-Space Observability",
+        "lean_module": "HamiltonianScaleComb.lean",
+        "neuralink_application": "Underpins the Neural Hamiltonian-Fourier (NHF) transform F_NH, compacting 70.29% of spike energy into K=1 canonical action-angle mode vs 35.58% for classical Euclidean FFT."
+      },
+      {
+        "pillar_id": "UNIF-07",
+        "name": "Milgram 5-Operator Topological Surgery Suite",
+        "lean_module": "MilgramTopologicalTools.lean",
+        "neuralink_application": "Resolves overlapping multi-unit spike collisions via codimension-1 handle surgery, Stiefel-Whitney chirality orientation, Adams-May 10-bit filtration, and Ranicki-Milgram dyadic signature."
+      },
+      {
+        "pillar_id": "UNIF-08",
+        "name": "Autoregressive-Doomed & 'Keep the Check' Deliberative Equilibrium Search",
+        "lean_module": "AutoregressiveDoomedFoundations.lean",
+        "neuralink_application": "Proves why open-loop autoregressive BCI decoders diverge as exp(2 lambda_max T) while 'Keep the Check' Hamiltonian equilibrium stabilization bounds cursor/arm drift uniformly for all T -> infinity."
+      },
+      {
+        "pillar_id": "UNIF-09",
+        "name": "Hamiltonian Fluid Halting & Von Neumann Finite-Resource Thermodynamics",
+        "lean_module": "HamiltonianFluidHalting.lean",
+        "neuralink_application": "Bounds cerebrospinal fluid (CSF) cardiorespiratory pulsatile micromotion damping around flexible N1 polyimide threads and enforces strict 24.4 uW/ch firmware compute budgets."
+      },
+      {
+        "pillar_id": "UNIF-10",
+        "name": "Doeblin-Dobrushin Markov Heat-Kernel Ergodic Contraction",
+        "lean_module": "Round165_r_quantum_linkheatkernel_doeblinratio_dobrushingap_v27.lean",
+        "neuralink_application": "Guarantees exponential mixing rate (1 - c_Doeblin)^t of multi-day non-stationary neural latent alignment across FALCON M1/H1/M2 sessions without recalibration."
+      },
+      {
+        "pillar_id": "UNIF-11",
+        "name": "Shannon Constructive Counting & Neural Switching Algebra (Neurolean)",
+        "lean_module": "Round1_Shannon_Counting_Constructive_Diagonalization.lean",
+        "neuralink_application": "Formalizes the nilpotent Grassmann refractory algebra psi_i^2 = 0 and non-commutative Weyl-Heisenberg E-I PING commutator [E_RS, I_FS] != 0."
+      },
+      {
+        "pillar_id": "UNIF-12",
+        "name": "Unified Neuralink N1 Pixelean/Voxelean/NHF Monograph Cohort",
+        "lean_module": "NeuralinkPixeleanVoxeleanCohort.lean",
+        "neuralink_application": "End-to-end formal verification of all Neuralink hardware, telemetry, compression, firmware, surgical robotics, CONVOY SE(3), Blindsight V1, and NHF/Neurolean laws."
+      }
+    ],
+    "modules": [
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round165_r_quantum_linkheatkernel_doeblinratio_dobrushingap_v27.lean",
+        "lines": 68,
+        "theorems": 4,
+        "structures": 0,
+        "defs": 3,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round165_r_quantum_linkheatkernel_doeblinratio_dobrushingap_v27.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round166_r_quantum_balabansmallfield_plaquettedefect_remainderhalfdeltabetaaf_v28.lean",
+        "lines": 52,
+        "theorems": 3,
+        "structures": 0,
+        "defs": 2,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round166_r_quantum_balabansmallfield_plaquettedefect_remainderhalfdeltabetaaf_v28.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round167_R_Quantum_StrongCouplingMassGap_LogFree_TwoSidedBracket_v29.lean",
+        "lines": 34,
+        "theorems": 1,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round167_R_Quantum_StrongCouplingMassGap_LogFree_TwoSidedBracket_v29.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round1_KolyvaginDerivativeOperatorIdentity_EulerSystemAnnihilatorMechanism.lean",
+        "lines": 60,
+        "theorems": 3,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round1_KolyvaginDerivativeOperatorIdentity_EulerSystemAnnihilatorMechanism.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round1_OS_StrongCouplingGap_LinearSandwich_ContinuumScaling.lean",
+        "lines": 49,
+        "theorems": 3,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round1_OS_StrongCouplingGap_LinearSandwich_ContinuumScaling.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round1_Shannon_Counting_Constructive_Diagonalization.lean",
+        "lines": 54,
+        "theorems": 4,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round1_Shannon_Counting_Constructive_Diagonalization.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round1_hodge_hard_lefschetz_degree_transfer.lean",
+        "lines": 43,
+        "theorems": 2,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round1_hodge_hard_lefschetz_degree_transfer.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Accreted/Round1_nicolas_product_mertens_pinning.lean",
+        "lines": 69,
+        "theorems": 3,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Round1_nicolas_product_mertens_pinning.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/ConjectureStatement.lean",
+        "lines": 161,
+        "theorems": 8,
+        "structures": 1,
+        "defs": 3,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "ConjectureStatement.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/Curves/Curve389a1.lean",
+        "lines": 105,
+        "theorems": 9,
+        "structures": 0,
+        "defs": 3,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Curve389a1.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/Curves/Curve5077a1.lean",
+        "lines": 123,
+        "theorems": 12,
+        "structures": 0,
+        "defs": 4,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Curve5077a1.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/NumericIsolation.lean",
+        "lines": 82,
+        "theorems": 3,
+        "structures": 2,
+        "defs": 2,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "NumericIsolation.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/Reductions.lean",
+        "lines": 106,
+        "theorems": 5,
+        "structures": 0,
+        "defs": 1,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "Reductions.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/SelmerShaScaffold.lean",
+        "lines": 76,
+        "theorems": 1,
+        "structures": 2,
+        "defs": 3,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "SelmerShaScaffold.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/ShaExactSequence.lean",
+        "lines": 52,
+        "theorems": 2,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "ShaExactSequence.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/TwoDescent.lean",
+        "lines": 131,
+        "theorems": 5,
+        "structures": 2,
+        "defs": 6,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "TwoDescent.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/BSD/WeierstrassBase.lean",
+        "lines": 37,
+        "theorems": 1,
+        "structures": 0,
+        "defs": 1,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "WeierstrassBase.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Linter/AxiomAudit.lean",
+        "lines": 36,
+        "theorems": 0,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "AxiomAudit.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Physics/ConstructiveYangMills.lean",
+        "lines": 1053,
+        "theorems": 65,
+        "structures": 2,
+        "defs": 30,
+        "sorries": 0,
+        "zfc_axiom_audit": false,
+        "module": "ConstructiveYangMills.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Physics/HamiltonianFluidHalting.lean",
+        "lines": 3983,
+        "theorems": 140,
+        "structures": 7,
+        "defs": 82,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "HamiltonianFluidHalting.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Physics/MassEnergySurprisal.lean",
+        "lines": 490,
+        "theorems": 38,
+        "structures": 0,
+        "defs": 9,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "MassEnergySurprisal.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/HamiltonianScaleComb.lean",
+        "lines": 347,
+        "theorems": 11,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "HamiltonianScaleComb.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/HodgeHolonomyDefectComb.lean",
+        "lines": 531,
+        "theorems": 17,
+        "structures": 1,
+        "defs": 1,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "HodgeHolonomyDefectComb.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/MellinTauberianTraceComb.lean",
+        "lines": 518,
+        "theorems": 19,
+        "structures": 0,
+        "defs": 8,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "MellinTauberianTraceComb.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/MetriplecticScaleComb.lean",
+        "lines": 516,
+        "theorems": 17,
+        "structures": 0,
+        "defs": 10,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "MetriplecticScaleComb.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/MilgramTopologicalTools.lean",
+        "lines": 1352,
+        "theorems": 60,
+        "structures": 8,
+        "defs": 14,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "MilgramTopologicalTools.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/PixeleanVoxeleanCalculus.lean",
+        "lines": 668,
+        "theorems": 24,
+        "structures": 5,
+        "defs": 10,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "PixeleanVoxeleanCalculus.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/clean-clone-oct16-revisions-20261016/JesseMath/Unified/SchurFeshbachWaveletComb.lean",
+        "lines": 735,
+        "theorems": 20,
+        "structures": 0,
+        "defs": 0,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "SchurFeshbachWaveletComb.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/autoreg-doomed-rev2-fastbuild/JesseMath/Unified/AutoregressiveDoomedFoundations.lean",
+        "lines": 547,
+        "theorems": 32,
+        "structures": 8,
+        "defs": 27,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "AutoregressiveDoomedFoundations.lean"
+      },
+      {
+        "exists": true,
+        "path": "/Users/stu/solidsf-scratch/neuralink-all-challenges/zenodo_publish_staging/JesseMath/Unified/NeuralinkPixeleanVoxeleanCohort.lean",
+        "lines": 961,
+        "theorems": 50,
+        "structures": 16,
+        "defs": 15,
+        "sorries": 0,
+        "zfc_axiom_audit": true,
+        "module": "NeuralinkPixeleanVoxeleanCohort.lean"
+      }
+    ]
+  },
+  "solidsf_multipysics_crates": {
+    "total_solidsf_rust_crates": 217,
+    "highlighted_neuralink_crates_count": 23,
+    "highlighted_neuralink_crates_total_loc": 403071,
+    "highlighted_neuralink_crates": [
+      {
+        "crate": "neuro-connectome",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "3D connectome netlist extraction, chiral handedness invariants, floorplanning, and synaptic adjacency topology.",
+        "rust_files": 14,
+        "rust_lines": 4270
+      },
+      {
+        "crate": "neuro-device-model",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "GPU-accelerated biophysical ion-channel & electrode-electrolyte interface kernel simulation.",
+        "rust_files": 13,
+        "rust_lines": 4102
+      },
+      {
+        "crate": "neuromorphic-app",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "Full 3D PDK stack, spike inbox router, and instanced cortical array visualization.",
+        "rust_files": 11,
+        "rust_lines": 5942
+      },
+      {
+        "crate": "rram-compute",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "Crossbar resistive-RAM analog in-memory matrix-vector multiply for sub-milliwatt implant spike sorting.",
+        "rust_files": 17,
+        "rust_lines": 14745
+      },
+      {
+        "crate": "optical-compute",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "Photonic/optical telemetry link budget and waveguided interconnect modeling.",
+        "rust_files": 2,
+        "rust_lines": 984
+      },
+      {
+        "crate": "gds-extract",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "CMOS ASIC layout parasitic extraction for the N1 1,024-channel recording/stimulation die.",
+        "rust_files": 18,
+        "rust_lines": 6026
+      },
+      {
+        "crate": "ngspice-harness",
+        "domain": "Neuromorphic Silicon, Connectomics & Implant Physics",
+        "description": "SPICE analog front-end (AFE) low-noise amplifier (LNA) and 10-bit SAR ADC DNL/INL verification.",
+        "rust_files": 1,
+        "rust_lines": 248
+      },
+      {
+        "crate": "hfs-electrostatic",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "3D Poisson/Laplace electric field & current spread solver for Blindsight V1 bipolar guard stimulation.",
+        "rust_files": 11,
+        "rust_lines": 4574
+      },
+      {
+        "crate": "ssf-thermal-map",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "3D Pennes bioheat conduction + microvascular perfusion solver verifying < 1.0 C cortical rise.",
+        "rust_files": 11,
+        "rust_lines": 2423
+      },
+      {
+        "crate": "thermal-net",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "Lumped-element RC thermal network solver for the N1 hermetically sealed titanium enclosure.",
+        "rust_files": 10,
+        "rust_lines": 2941
+      },
+      {
+        "crate": "cfd-solver",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "Incompressible Navier-Stokes solver for cerebrospinal fluid (CSF) cardiorespiratory pulsatile flow around 5 um polyimide threads.",
+        "rust_files": 19,
+        "rust_lines": 19071
+      },
+      {
+        "crate": "cfd-mortar",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "Moving-mesh non-conforming mortar interface for cortical respiratory/vascular micromotion.",
+        "rust_files": 9,
+        "rust_lines": 3076
+      },
+      {
+        "crate": "fea",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "Finite-element buckling and bending stress solver for tungsten-rhenium insertion needles and flexible threads.",
+        "rust_files": 51,
+        "rust_lines": 54093
+      },
+      {
+        "crate": "contactsim",
+        "domain": "Electrostatics, Bioheat Thermal Safety & Cerebrospinal Fluid (CSF) Mechanics",
+        "description": "Frictional tissue-needle insertion contact mechanics and pia-arachnoid dimpling simulation.",
+        "rust_files": 79,
+        "rust_lines": 19987
+      },
+      {
+        "crate": "jesse-robot",
+        "domain": "R1 Surgical Robot, CONVOY 7-DoF Arm & ASME Y14.5 CAD/Kinematics",
+        "description": "Real-time SE(3) screw-theory inverse kinematics and visual-servoing control for the R1 surgical robot and CONVOY arm.",
+        "rust_files": 38,
+        "rust_lines": 17697
+      },
+      {
+        "crate": "rigidsim",
+        "domain": "R1 Surgical Robot, CONVOY 7-DoF Arm & ASME Y14.5 CAD/Kinematics",
+        "description": "Symplectic multi-body rigid dynamics for 7-DoF assistive robotic manipulators.",
+        "rust_files": 7,
+        "rust_lines": 2394
+      },
+      {
+        "crate": "brep",
+        "domain": "R1 Surgical Robot, CONVOY 7-DoF Arm & ASME Y14.5 CAD/Kinematics",
+        "description": "Watertight 2-manifold B-Rep/NURBS kernel with Steinmetz bicubic coping for the N1 enclosure and needle cartridge.",
+        "rust_files": 158,
+        "rust_lines": 184255
+      },
+      {
+        "crate": "step",
+        "domain": "R1 Surgical Robot, CONVOY 7-DoF Arm & ASME Y14.5 CAD/Kinematics",
+        "description": "ISO-10303-21 STEP AP242 CAD assembly exchange with ASME Y14.5 datum hierarchy.",
+        "rust_files": 43,
+        "rust_lines": 23983
+      },
+      {
+        "crate": "cam",
+        "domain": "R1 Surgical Robot, CONVOY 7-DoF Arm & ASME Y14.5 CAD/Kinematics",
+        "description": "5-axis micro-machining toolpath generation for micro-surgical needle collets and ceramic feedthroughs.",
+        "rust_files": 29,
+        "rust_lines": 11968
+      },
+      {
+        "crate": "jesse-kernel",
+        "domain": "Jesse Swarm, Formal Verification & Autonomous Kernel",
+        "description": "Self-sandboxed multi-agent swarm execution engine powering the 50,000-node J1.3 review & synthesis array.",
+        "rust_files": 8,
+        "rust_lines": 2411
+      },
+      {
+        "crate": "jesse-synth",
+        "domain": "Jesse Swarm, Formal Verification & Autonomous Kernel",
+        "description": "Program synthesis and symbolic operator discovery engine for lossless codecs and bare-metal drivers.",
+        "rust_files": 12,
+        "rust_lines": 6268
+      },
+      {
+        "crate": "lean_client",
+        "domain": "Jesse Swarm, Formal Verification & Autonomous Kernel",
+        "description": "Direct Lean 4 kernel RPC bridge for compile-time #assert_zfc_axioms verification.",
+        "rust_files": 6,
+        "rust_lines": 743
+      },
+      {
+        "crate": "kernel-oracles",
+        "domain": "Jesse Swarm, Formal Verification & Autonomous Kernel",
+        "description": "Deterministic numerical oracle harness verifying exact claim-to-artifact parity.",
+        "rust_files": 18,
+        "rust_lines": 10870
+      }
+    ]
+  }
+}

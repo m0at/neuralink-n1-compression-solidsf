@@ -1,0 +1,1191 @@
+{
+  "dataset_summary": {
+    "data_dir": "/Users/stu/Downloads/data",
+    "num_files": 743,
+    "total_samples": 73383917,
+    "sampling_rate_hz": 19531.0,
+    "sample_period_us": 51.200655,
+    "total_duration_seconds": 3757.3046,
+    "synchronous_dyads": 305,
+    "paired_files": 610,
+    "unpaired_singletons": 133,
+    "occupied_10bit_codes": "1023 / 1024 (only k=895 absent)"
+  },
+  "reality_comb_1_schur_feshbach": {
+    "lean_module": "JesseMath.Unified.SchurFeshbachWaveletComb (20 theorems)",
+    "operator_formula": "H_eff(E) = H_PP + H_PQ (E - H_QQ)^(-1) H_QP",
+    "subspace_P": "Slow LFP Carrier (< 300 Hz: Low-LFP < 70 Hz + High-Gamma PING 70..300 Hz)",
+    "subspace_Q": "Fast Action-Potential Spike Shells (>= 300 Hz: Q1=[300,600), Q2=[600,1200), Q3=[1200,2400), Q4=[2400,9765.5] Hz)",
+    "probe_energy_E_HG_rad_ms_sq": 0.568489,
+    "self_energy_coupling_norm_ratio_Sigma_over_HPP": {
+      "mean": 0.013378,
+      "std": 0.029353,
+      "median": 0.007608,
+      "p10": 0.004467,
+      "p90": 0.019666,
+      "min": 0.002178,
+      "max": 0.509626
+    },
+    "high_gamma_frequency_dressing_shift_hz": {
+      "mean": -1.05189,
+      "std": 2.574745,
+      "median": -0.586875,
+      "p10": -1.503565,
+      "p90": -0.338366,
+      "min": -48.088422,
+      "max": -0.160244
+    },
+    "high_gamma_spike_phase_locking_value_PLV": {
+      "mean": 0.438688,
+      "std": 0.316869,
+      "median": 0.403235,
+      "p10": 0.0,
+      "p90": 1.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bare_12_octave_stiffness_condition_number": {
+      "mean": 3842567.47482,
+      "std": 428295.876022,
+      "median": 3794236.732684,
+      "p10": 3342969.52186,
+      "p90": 4398377.306157,
+      "min": 2879104.375751,
+      "max": 5807014.902061
+    },
+    "combed_effective_hamiltonian_condition_number": {
+      "mean": 5.351656,
+      "std": 0.304744,
+      "median": 5.333857,
+      "p10": 5.076605,
+      "p90": 5.705412,
+      "min": 2.862304,
+      "max": 6.657562
+    },
+    "condition_number_compression_factor": 711349.6,
+    "banach_susceptibility_lipschitz_L_FB": {
+      "mean": 0.000786,
+      "std": 0.001397,
+      "median": 0.000518,
+      "p10": 0.000297,
+      "p90": 0.001171,
+      "min": 0.000131,
+      "max": 0.025493
+    },
+    "files_satisfying_subcritical_banach_lock_L_FB_lt_1": 743,
+    "variational_slaving_spike_envelope_fraction": {
+      "mean": 0.000405,
+      "std": 0.000606,
+      "median": 0.000291,
+      "p10": 0.000144,
+      "p90": 0.000646,
+      "min": 5.7e-05,
+      "max": 0.009437
+    },
+    "bregman_subgrid_autonomous_spike_surprisal_ratio": {
+      "mean": 1.001058,
+      "std": 0.002464,
+      "median": 1.000564,
+      "p10": 1.000299,
+      "p90": 1.001552,
+      "min": 1.000146,
+      "max": 1.03392
+    }
+  },
+  "reality_comb_2_mori_zwanzig": {
+    "lean_module": "JesseMath.Unified.MetriplecticScaleComb (17 theorems)",
+    "operator_formula": "dV/dt = Omega V(t) - \\int_0^t K(t-s) V(s) ds + F_fluct(t)",
+    "kernel_at_1p5ms_refractory_ms_sq_inv": {
+      "mean": -0.031012,
+      "std": 0.145868,
+      "median": -0.004064,
+      "p10": -0.167149,
+      "p90": 0.090052,
+      "min": -1.319299,
+      "max": 0.363328
+    },
+    "kernel_at_8p3ms_high_gamma_ping_ms_sq_inv": {
+      "mean": 0.004866,
+      "std": 0.120544,
+      "median": 0.004711,
+      "p10": -0.1108,
+      "p90": 0.124531,
+      "min": -0.899534,
+      "max": 0.664771
+    },
+    "kernel_at_120ms_motor_reach_ms_sq_inv": {
+      "mean": 0.000685,
+      "std": 0.00315,
+      "median": 0.000461,
+      "p10": -0.003099,
+      "p90": 0.004628,
+      "min": -0.013622,
+      "max": 0.011214
+    },
+    "integrated_memory_norm_1p5ms_window_ms_inv": {
+      "mean": 0.231512,
+      "std": 0.289071,
+      "median": 0.158353,
+      "p10": 0.043675,
+      "p90": 0.48852,
+      "min": 0.000997,
+      "max": 4.204045
+    },
+    "integrated_memory_norm_8p3ms_window_ms_inv": {
+      "mean": 0.316997,
+      "std": 0.232588,
+      "median": 0.263398,
+      "p10": 0.079473,
+      "p90": 0.617979,
+      "min": 0.000562,
+      "max": 1.729255
+    },
+    "integrated_memory_norm_120ms_window_ms_inv": {
+      "mean": 0.16458,
+      "std": 0.067808,
+      "median": 0.16896,
+      "p10": 0.065678,
+      "p90": 0.247182,
+      "min": 0.001367,
+      "max": 0.363882
+    },
+    "non_markovian_variance_reduction_over_markov_ar1": {
+      "mean": 0.04861,
+      "std": 0.028045,
+      "median": 0.042561,
+      "p10": 0.018771,
+      "p90": 0.087391,
+      "min": 0.0032,
+      "max": 0.29961
+    },
+    "files_with_depolarizing_to_refractory_kernel_sign_flip": 737
+  },
+  "reality_comb_3_koopman_perron_frobenius": {
+    "lean_module": "JesseMath.Unified.HamiltonianScaleComb (11 theorems)",
+    "operator_formula": "K_{\\Delta t} g(x_t) = E[g(x_{t+\\Delta t}) | x_t], \\lambda_m = exp((\\sigma_m + i \\omega_m)\\Delta t)",
+    "nonlinear_spike_jet_dictionary": [
+      "V",
+      "dV/dt",
+      "d^2V/dt^2",
+      "V^2 - <V^2>",
+      "V * dV/dt"
+    ],
+    "dominant_koopman_eigenfrequency_hz": {
+      "mean": 1355.843195,
+      "std": 909.486098,
+      "median": 1154.157616,
+      "p10": 344.875994,
+      "p90": 2608.979305,
+      "min": 0.0,
+      "max": 4598.928983
+    },
+    "dominant_koopman_damping_rate_per_sec": {
+      "mean": -17231.704545,
+      "std": 8847.590224,
+      "median": -14424.674854,
+      "p10": -29539.922602,
+      "p90": -7526.698575,
+      "min": -47288.140915,
+      "max": -1365.525926
+    },
+    "spectral_radius_5d_nonlinear_spike_jet": {
+      "mean": 0.388405,
+      "std": 0.107128,
+      "median": 0.384157,
+      "p10": 0.255796,
+      "p90": 0.516376,
+      "min": 0.148324,
+      "max": 0.957709
+    },
+    "spectral_radius_1d_raw_linear_state": {
+      "mean": 0.475324,
+      "std": 0.105555,
+      "median": 0.476933,
+      "p10": 0.345923,
+      "p90": 0.614849,
+      "min": 0.011368,
+      "max": 0.913378
+    },
+    "active_spike_orbit_r2_5d_koopman_jet": {
+      "mean": 0.536988,
+      "std": 0.11944,
+      "median": 0.519139,
+      "p10": 0.395431,
+      "p90": 0.711215,
+      "min": 0.246974,
+      "max": 0.940027
+    },
+    "active_spike_orbit_r2_1d_linear_state": {
+      "mean": 0.278582,
+      "std": 0.053433,
+      "median": 0.277332,
+      "p10": 0.221361,
+      "p90": 0.338238,
+      "min": 0.063528,
+      "max": 0.552441
+    },
+    "nonlinear_koopman_reconstruction_gain_ratio": {
+      "mean": 1.961033,
+      "std": 0.514174,
+      "median": 1.823516,
+      "p10": 1.630546,
+      "p90": 2.36863,
+      "min": 1.55087,
+      "max": 6.727637
+    }
+  },
+  "reality_comb_4_bargmann_segal": {
+    "lean_module": "JesseMath.Unified.MellinTauberianTraceComb (19 theorems)",
+    "operator_formula": "z = (q + i p)/sqrt(2), B\\psi(z) = exp(-|z|^2/2) \\sum_n c_n z^n / sqrt(n!)",
+    "intrinsic_coherent_spike_scale_ms": 0.256,
+    "husimi_bargmann_phase_space_entropy_bits": {
+      "mean": 5.912658,
+      "std": 0.395738,
+      "median": 5.89649,
+      "p10": 5.436513,
+      "p90": 6.4459,
+      "min": 4.497419,
+      "max": 7.088424
+    },
+    "standard_stft_spectrogram_entropy_bits": {
+      "mean": 6.145775,
+      "std": 0.413269,
+      "median": 6.11636,
+      "p10": 5.630617,
+      "p90": 6.724233,
+      "min": 4.775997,
+      "max": 7.315812
+    },
+    "bargmann_entropy_reduction_bits": {
+      "mean": 0.233116,
+      "std": 0.263673,
+      "median": 0.229249,
+      "p10": -0.040623,
+      "p90": 0.520265,
+      "min": -1.307224,
+      "max": 1.383694
+    },
+    "bargmann_fock_16mode_entropy_bits": {
+      "mean": 2.653736,
+      "std": 0.243627,
+      "median": 2.650382,
+      "p10": 2.394483,
+      "p90": 2.949096,
+      "min": 1.244108,
+      "max": 3.459002
+    },
+    "dft_fourier_spectral_entropy_bits": {
+      "mean": 4.094862,
+      "std": 0.408642,
+      "median": 4.085003,
+      "p10": 3.643774,
+      "p90": 4.595212,
+      "min": 0.727756,
+      "max": 5.287656
+    },
+    "bargmann_fock_vs_dft_entropy_reduction_bits": {
+      "mean": 1.441125,
+      "std": 0.394319,
+      "median": 1.455252,
+      "p10": 1.043726,
+      "p90": 1.868658,
+      "min": -1.539507,
+      "max": 2.856959
+    },
+    "phase_space_peak_concentration_gain_over_stft": {
+      "mean": 1.635196,
+      "std": 0.346052,
+      "median": 1.611918,
+      "p10": 1.249209,
+      "p90": 1.998663,
+      "min": 0.596253,
+      "max": 3.863784
+    },
+    "spike_peak_radial_action_norm_z_sq": {
+      "mean": 19.272884,
+      "std": 38.176243,
+      "median": 13.673898,
+      "p10": 11.075575,
+      "p90": 24.661268,
+      "min": 9.841338,
+      "max": 884.430987
+    }
+  },
+  "milgram_operator_1_spike_collision_surgery": {
+    "lean_theorems": [
+      "surgical_dehn_handle_kill_arf_annihilation",
+      "sylvester_resultant_pole_zero_collision_factorization",
+      "example1_froissart_doublet_pade_pole_zero_cancellation_guard"
+    ],
+    "total_primary_spikes_detected": 35393,
+    "colliding_multi_unit_spike_doublets_detected": 7814,
+    "collision_fraction_of_all_spikes": 0.220778,
+    "collisions_inside_1ms_missed_by_classical_blanking": 4027,
+    "arf1_self_intersecting_phase_loops_detected": 7713,
+    "doublets_surgically_resolved_with_arf0": 7557,
+    "surgical_resolution_success_rate": 0.96711,
+    "sylvester_resultant_det_sq_ms2": {
+      "mean": 0.945945,
+      "std": 0.639321,
+      "median": 0.946364,
+      "p10": 0.128454,
+      "p90": 1.911079,
+      "min": 0.065538,
+      "max": 2.055262
+    },
+    "post_surgery_residual_energy_ratio": {
+      "mean": 0.541014,
+      "std": 0.254466,
+      "median": 0.545954,
+      "p10": 0.199629,
+      "p90": 0.872749,
+      "min": 0.020924,
+      "max": 1.663835
+    }
+  },
+  "milgram_operator_2_chiral_spike_orientation_classes": {
+    "lean_theorems": [
+      "scalar_euler_blindness_vs_surgical_arf_discrimination",
+      "example4_hexahedral_mesh_frame_field_twist_elimination",
+      "hodge_three_sector_norm_decomposition"
+    ],
+    "total_valid_spike_orbits_classified": 35326,
+    "chern_c1_neg1_somatic_trough_orbits": 28306,
+    "chern_c1_pos1_axonal_return_orbits": 7020,
+    "somatic_neg1_fraction": 0.80128,
+    "stiefel_whitney_w1_0_orientable_frenet_ribbons": 7400,
+    "stiefel_whitney_w1_1_mobius_inflection_twists": 27926,
+    "orientable_w1_0_fraction": 0.209477,
+    "symplectic_orbit_action_area_oint_p_dq": {
+      "mean": 284.742242,
+      "std": 2978.581541,
+      "median": 30.799615,
+      "p10": 17.889544,
+      "p90": 165.051632,
+      "min": 3.776103,
+      "max": 189514.232516
+    },
+    "frenet_3d_jet_integrated_curvature": {
+      "mean": 61.453344,
+      "std": 583.595511,
+      "median": 53.84083,
+      "p10": 19.579676,
+      "p90": 81.367324,
+      "min": 0.191339,
+      "max": 94440.497995
+    },
+    "frenet_3d_jet_integrated_torsion": {
+      "mean": 58.936314,
+      "std": 2650.854481,
+      "median": 23.523278,
+      "p10": 6.699986,
+      "p90": 45.824134,
+      "min": 0.135408,
+      "max": 457858.828485
+    },
+    "file_mean_chern_chirality": {
+      "mean": -0.406064,
+      "std": 0.676445,
+      "median": -0.75,
+      "p10": -1.0,
+      "p90": 0.912867,
+      "min": -1.0,
+      "max": 1.0
+    }
+  },
+  "milgram_operator_3_adams_may_10bit_spectral_sequence": {
+    "lean_theorems": [
+      "normalized_bar_complex_degeneracy_compression",
+      "cochain_coboundary_nilpotency_and_holonomy_gap",
+      "bar_kunneth_product_functoriality_identity"
+    ],
+    "filtration_structure": "F_0 subset F_1 subset ... subset F_9 over F_2 on 10-bit Beatty lattice codes k in {0..1023}",
+    "pages_evaluated": "E_1 (dt=1), E_2 (dt=2), E_3 (dt=4), E_4 (dt=8), E_5 (dt=16 samples)",
+    "bit_planes": [
+      {
+        "bit_plane": 0,
+        "weight_lsb": 1,
+        "regime": "LSB Thermal/Quantization Gauge Floor (dies at E_1 -> E_2)",
+        "one_occupancy_prob": 0.52132,
+        "binary_shannon_entropy_bits": 0.998688,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.496325,
+          "E_2_step_2": 0.496674,
+          "E_3_step_4": 0.496629,
+          "E_4_step_8": 0.496817,
+          "E_5_step_16": 0.496712
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.247988,
+          "E_2_surv": 0.24836,
+          "E_3_surv": 0.24822,
+          "E_4_surv": 0.24846,
+          "E_5_surv": 0.248269
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.247988,
+        "milgram_bar_degeneracy_compression_frac": 0.752012
+      },
+      {
+        "bit_plane": 1,
+        "weight_lsb": 2,
+        "regime": "LSB Thermal/Quantization Gauge Floor (dies at E_1 -> E_2)",
+        "one_occupancy_prob": 0.583581,
+        "binary_shannon_entropy_bits": 0.979748,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.48322,
+          "E_2_step_2": 0.483609,
+          "E_3_step_4": 0.483724,
+          "E_4_step_8": 0.484,
+          "E_5_step_16": 0.484024
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.241416,
+          "E_2_surv": 0.241747,
+          "E_3_surv": 0.241723,
+          "E_4_surv": 0.241988,
+          "E_5_surv": 0.241982
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.241416,
+        "milgram_bar_degeneracy_compression_frac": 0.758584
+      },
+      {
+        "bit_plane": 2,
+        "weight_lsb": 4,
+        "regime": "LSB Thermal/Quantization Gauge Floor (dies at E_1 -> E_2)",
+        "one_occupancy_prob": 0.471566,
+        "binary_shannon_entropy_bits": 0.997666,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.493196,
+          "E_2_step_2": 0.49492,
+          "E_3_step_4": 0.495497,
+          "E_4_step_8": 0.495819,
+          "E_5_step_16": 0.495985
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.245736,
+          "E_2_surv": 0.247172,
+          "E_3_surv": 0.247587,
+          "E_4_surv": 0.247827,
+          "E_5_surv": 0.247872
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.245736,
+        "milgram_bar_degeneracy_compression_frac": 0.754264
+      },
+      {
+        "bit_plane": 3,
+        "weight_lsb": 8,
+        "regime": "Mid-Band Neural Spike & LFP Cohomology Shell (survives E_2 -> E_5)",
+        "one_occupancy_prob": 0.463032,
+        "binary_shannon_entropy_bits": 0.996053,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.4579,
+          "E_2_step_2": 0.483061,
+          "E_3_step_4": 0.490997,
+          "E_4_step_8": 0.49331,
+          "E_5_step_16": 0.49429
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.21637,
+          "E_2_surv": 0.237562,
+          "E_3_surv": 0.244342,
+          "E_4_surv": 0.246165,
+          "E_5_surv": 0.246879
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.21637,
+        "milgram_bar_degeneracy_compression_frac": 0.78363
+      },
+      {
+        "bit_plane": 4,
+        "weight_lsb": 16,
+        "regime": "Mid-Band Neural Spike & LFP Cohomology Shell (survives E_2 -> E_5)",
+        "one_occupancy_prob": 0.482789,
+        "binary_shannon_entropy_bits": 0.999145,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.295167,
+          "E_2_step_2": 0.365362,
+          "E_3_step_4": 0.416665,
+          "E_4_step_8": 0.445198,
+          "E_5_step_16": 0.465165
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.112485,
+          "E_2_surv": 0.15703,
+          "E_3_surv": 0.194066,
+          "E_4_surv": 0.212616,
+          "E_5_surv": 0.22517
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.112485,
+        "milgram_bar_degeneracy_compression_frac": 0.887515
+      },
+      {
+        "bit_plane": 5,
+        "weight_lsb": 32,
+        "regime": "Mid-Band Neural Spike & LFP Cohomology Shell (survives E_2 -> E_5)",
+        "one_occupancy_prob": 0.393524,
+        "binary_shannon_entropy_bits": 0.967036,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.151044,
+          "E_2_step_2": 0.195237,
+          "E_3_step_4": 0.239296,
+          "E_4_step_8": 0.274686,
+          "E_5_step_16": 0.310024
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.053426,
+          "E_2_surv": 0.075589,
+          "E_3_surv": 0.101953,
+          "E_4_surv": 0.119673,
+          "E_5_surv": 0.134684
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.053426,
+        "milgram_bar_degeneracy_compression_frac": 0.946574
+      },
+      {
+        "bit_plane": 6,
+        "weight_lsb": 64,
+        "regime": "Mid-Band Neural Spike & LFP Cohomology Shell (survives E_2 -> E_5)",
+        "one_occupancy_prob": 0.250225,
+        "binary_shannon_entropy_bits": 0.811635,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.076033,
+          "E_2_step_2": 0.098897,
+          "E_3_step_4": 0.122406,
+          "E_4_step_8": 0.142321,
+          "E_5_step_16": 0.163185
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.026585,
+          "E_2_surv": 0.037694,
+          "E_3_surv": 0.051245,
+          "E_4_surv": 0.060728,
+          "E_5_surv": 0.067873
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.026585,
+        "milgram_bar_degeneracy_compression_frac": 0.973415
+      },
+      {
+        "bit_plane": 7,
+        "weight_lsb": 128,
+        "regime": "MSB Baseline Well & Saturation Boundary",
+        "one_occupancy_prob": 0.229718,
+        "binary_shannon_entropy_bits": 0.777519,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.064714,
+          "E_2_step_2": 0.08477,
+          "E_3_step_4": 0.10539,
+          "E_4_step_8": 0.122709,
+          "E_5_step_16": 0.140529
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.022329,
+          "E_2_surv": 0.032075,
+          "E_3_surv": 0.044035,
+          "E_4_surv": 0.052445,
+          "E_5_surv": 0.058602
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.022329,
+        "milgram_bar_degeneracy_compression_frac": 0.977671
+      },
+      {
+        "bit_plane": 8,
+        "weight_lsb": 256,
+        "regime": "MSB Baseline Well & Saturation Boundary",
+        "one_occupancy_prob": 0.229325,
+        "binary_shannon_entropy_bits": 0.776833,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.062763,
+          "E_2_step_2": 0.082603,
+          "E_3_step_4": 0.103039,
+          "E_4_step_8": 0.120117,
+          "E_5_step_16": 0.137579
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.021461,
+          "E_2_surv": 0.031083,
+          "E_3_surv": 0.042981,
+          "E_4_surv": 0.051327,
+          "E_5_surv": 0.057379
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.021461,
+        "milgram_bar_degeneracy_compression_frac": 0.978539
+      },
+      {
+        "bit_plane": 9,
+        "weight_lsb": 512,
+        "regime": "MSB Baseline Well & Saturation Boundary",
+        "one_occupancy_prob": 0.771509,
+        "binary_shannon_entropy_bits": 0.775371,
+        "coboundary_density_by_page": {
+          "E_1_step_1": 0.062584,
+          "E_2_step_2": 0.082381,
+          "E_3_step_4": 0.102783,
+          "E_4_step_8": 0.119814,
+          "E_5_step_16": 0.137196
+        },
+        "cohomology_survival_by_page": {
+          "E_1_surv": 0.021393,
+          "E_2_surv": 0.03099,
+          "E_3_surv": 0.042876,
+          "E_4_surv": 0.051216,
+          "E_5_surv": 0.057258
+        },
+        "milgram_bar_nondegenerate_2simplex_frac": 0.021393,
+        "milgram_bar_degeneracy_compression_frac": 0.978607
+      }
+    ]
+  },
+  "milgram_operator_4_ranicki_milgram_dyad_signatures": {
+    "lean_theorems": [
+      "madsen_milgram_e8_plumbing_trace_and_signature_invariants",
+      "kervaire_milgram_arf_quadratic_bilinear_refinement",
+      "wall_l_group_fourfold_periodicity_and_signature_map"
+    ],
+    "total_synchronous_dyads": 305,
+    "concordance_signature_distribution": {
+      "(2,0)": 296,
+      "(1,1)": 9
+    },
+    "arf_0_concordant_volume_conducted_dyads": 195,
+    "arf_1_surgical_twisted_axonal_or_emergent_dyads": 110,
+    "pfaffian_symplectic_flux_spike_band_ms_inv": {
+      "mean": 0.179573,
+      "std": 0.179204,
+      "median": 0.132082,
+      "p10": 0.016715,
+      "p90": 0.400418,
+      "min": 0.000178,
+      "max": 1.144648
+    },
+    "pfaffian_symplectic_flux_lfp_band_ms_inv": {
+      "mean": 0.012299,
+      "std": 0.013993,
+      "median": 0.007812,
+      "p10": 0.001177,
+      "p90": 0.031813,
+      "min": 3e-06,
+      "max": 0.108548
+    },
+    "emergent_hidden_spikes_in_arf0_dyads": {
+      "mean": 1.405128,
+      "std": 1.266926,
+      "median": 1.0,
+      "p10": 0.0,
+      "p90": 3.0,
+      "min": 0.0,
+      "max": 4.0
+    },
+    "emergent_hidden_spikes_in_arf1_dyads": {
+      "mean": 9.481818,
+      "std": 7.160157,
+      "median": 7.0,
+      "p10": 1.0,
+      "p90": 19.0,
+      "min": 0.0,
+      "max": 36.0
+    },
+    "wall_l_group_obstruction_norm": {
+      "mean": 26.104847,
+      "std": 57.973775,
+      "median": 7.077518,
+      "p10": 0.190224,
+      "p90": 65.136198,
+      "min": 1.3e-05,
+      "max": 524.087692
+    },
+    "top_15_dyads_by_wall_surgical_obstruction": [
+      {
+        "uuid_a": "3839f1aa-ccfc-4bff-afc5-0ed674403a66",
+        "uuid_b": "6c1d183e-922f-4d75-8467-c464bdf3d21d",
+        "nframes": 98723,
+        "r_spk": 0.51037,
+        "r_lfp": 0.68661,
+        "delta_tau_spk_us": 6.694,
+        "pfaffian_flux_spk_ms_inv": 1.14465,
+        "pfaffian_flux_lfp_ms_inv": 0.00892,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 0,
+        "emergent_hidden_spikes_in_vdiff": 2,
+        "wall_obstruction_norm": 524.0877
+      },
+      {
+        "uuid_a": "5bfa0a02-0627-4ad8-a030-ac44924fe784",
+        "uuid_b": "b0ad441a-6a1f-4a23-8847-246620ac1b88",
+        "nframes": 98956,
+        "r_spk": 0.11975,
+        "r_lfp": 0.13388,
+        "delta_tau_spk_us": 22.306,
+        "pfaffian_flux_spk_ms_inv": 1.12161,
+        "pfaffian_flux_lfp_ms_inv": 0.00432,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 11,
+        "wall_obstruction_norm": 504.2027
+      },
+      {
+        "uuid_a": "65426899-7a48-43b4-ba86-8019fcccfdb0",
+        "uuid_b": "80dae54c-922a-4c99-858d-e03fecd55e7d",
+        "nframes": 98665,
+        "r_spk": 0.21684,
+        "r_lfp": 0.36873,
+        "delta_tau_spk_us": 9.58,
+        "pfaffian_flux_spk_ms_inv": 0.92265,
+        "pfaffian_flux_lfp_ms_inv": -0.00652,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 5,
+        "wall_obstruction_norm": 341.5115
+      },
+      {
+        "uuid_a": "3b20945b-04aa-4983-847d-608f9ee78679",
+        "uuid_b": "4c949895-0947-455b-803d-74102b41e754",
+        "nframes": 98728,
+        "r_spk": 0.26473,
+        "r_lfp": 0.45659,
+        "delta_tau_spk_us": -9.197,
+        "pfaffian_flux_spk_ms_inv": -0.81475,
+        "pfaffian_flux_lfp_ms_inv": 0.00824,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 0,
+        "emergent_hidden_spikes_in_vdiff": 0,
+        "wall_obstruction_norm": 265.527
+      },
+      {
+        "uuid_a": "07c990a2-7775-428b-ad4b-3cf4a233d5f6",
+        "uuid_b": "1cd57a9e-f016-41c9-9b19-7e1326454de7",
+        "nframes": 98685,
+        "r_spk": 0.16521,
+        "r_lfp": 0.12339,
+        "delta_tau_spk_us": 44.662,
+        "pfaffian_flux_spk_ms_inv": 0.78722,
+        "pfaffian_flux_lfp_ms_inv": 0.05967,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 11,
+        "wall_obstruction_norm": 248.8843
+      },
+      {
+        "uuid_a": "20093702-4470-4eb8-94ed-1ef923726ba1",
+        "uuid_b": "f882c900-4608-465d-b9db-24a9cdc3b1c0",
+        "nframes": 99001,
+        "r_spk": 0.15583,
+        "r_lfp": -0.01275,
+        "delta_tau_spk_us": 10.96,
+        "pfaffian_flux_spk_ms_inv": 0.73254,
+        "pfaffian_flux_lfp_ms_inv": 0.01201,
+        "concordance_signature": "(1,1)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 1,
+        "wall_obstruction_norm": 215.6485
+      },
+      {
+        "uuid_a": "7d2e10a6-31b6-4d70-bfe3-d2627f1352e4",
+        "uuid_b": "dab03e8b-a025-43bd-af70-51b221ff41c0",
+        "nframes": 98687,
+        "r_spk": 0.1524,
+        "r_lfp": 0.34192,
+        "delta_tau_spk_us": 38.509,
+        "pfaffian_flux_spk_ms_inv": 0.73201,
+        "pfaffian_flux_lfp_ms_inv": 0.01557,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 11,
+        "wall_obstruction_norm": 215.3352
+      },
+      {
+        "uuid_a": "37cee1c9-1b71-4e99-9315-5f38e99e1485",
+        "uuid_b": "4a0bf089-ab79-43e0-9a3d-caa48ad8b0af",
+        "nframes": 98704,
+        "r_spk": 0.14757,
+        "r_lfp": 0.18608,
+        "delta_tau_spk_us": 42.862,
+        "pfaffian_flux_spk_ms_inv": 0.71721,
+        "pfaffian_flux_lfp_ms_inv": 0.01119,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 19,
+        "wall_obstruction_norm": 206.7548
+      },
+      {
+        "uuid_a": "8895b3c3-6934-442a-ba91-e4c0201c45a2",
+        "uuid_b": "f5404fd5-4af5-4fee-b56e-19d3e66cbcc5",
+        "nframes": 99013,
+        "r_spk": 0.41738,
+        "r_lfp": 0.78551,
+        "delta_tau_spk_us": -15.476,
+        "pfaffian_flux_spk_ms_inv": -0.58102,
+        "pfaffian_flux_lfp_ms_inv": -0.0134,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 10,
+        "wall_obstruction_norm": 136.0349
+      },
+      {
+        "uuid_a": "16ade36e-d993-4d65-8cfd-c5d94ceef5d3",
+        "uuid_b": "dcc8d8de-081e-4d2a-a713-875a3e794de3",
+        "nframes": 98728,
+        "r_spk": 0.3566,
+        "r_lfp": 0.70445,
+        "delta_tau_spk_us": 26.638,
+        "pfaffian_flux_spk_ms_inv": 0.57883,
+        "pfaffian_flux_lfp_ms_inv": -0.01161,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 3,
+        "wall_obstruction_norm": 135.0173
+      },
+      {
+        "uuid_a": "91b850dc-5923-44d4-9f9a-051fc87cec00",
+        "uuid_b": "f869926f-bb4b-4420-9ae0-5eab4a714eb0",
+        "nframes": 98690,
+        "r_spk": 0.39665,
+        "r_lfp": 0.90775,
+        "delta_tau_spk_us": -15.055,
+        "pfaffian_flux_spk_ms_inv": -0.56737,
+        "pfaffian_flux_lfp_ms_inv": -0.01395,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 19,
+        "wall_obstruction_norm": 129.7615
+      },
+      {
+        "uuid_a": "d262b7b5-5b79-4743-95a8-cefe85c06eab",
+        "uuid_b": "eee9bdc4-317b-43a6-aa96-9cb2e2912bd1",
+        "nframes": 98733,
+        "r_spk": 0.25115,
+        "r_lfp": 0.5455,
+        "delta_tau_spk_us": -39.505,
+        "pfaffian_flux_spk_ms_inv": -0.55206,
+        "pfaffian_flux_lfp_ms_inv": -0.0319,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 1,
+        "wall_obstruction_norm": 122.9059
+      },
+      {
+        "uuid_a": "0eab843a-5e03-469a-aafc-6d5d3af44714",
+        "uuid_b": "edaf84eb-3dc4-42f9-a77c-3ea691b66c1e",
+        "nframes": 98766,
+        "r_spk": 0.35449,
+        "r_lfp": 0.35665,
+        "delta_tau_spk_us": -7.498,
+        "pfaffian_flux_spk_ms_inv": -0.53949,
+        "pfaffian_flux_lfp_ms_inv": -0.00017,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 0,
+        "emergent_hidden_spikes_in_vdiff": 0,
+        "wall_obstruction_norm": 116.4182
+      },
+      {
+        "uuid_a": "6fa836a3-a161-4ba6-8b88-08e5c6b466e2",
+        "uuid_b": "c64a9a77-0a86-4108-9223-985d80602b22",
+        "nframes": 98738,
+        "r_spk": 0.37332,
+        "r_lfp": 0.7761,
+        "delta_tau_spk_us": -13.16,
+        "pfaffian_flux_spk_ms_inv": -0.52948,
+        "pfaffian_flux_lfp_ms_inv": -0.029,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 1,
+        "emergent_hidden_spikes_in_vdiff": 16,
+        "wall_obstruction_norm": 113.1377
+      },
+      {
+        "uuid_a": "741e1978-11fb-4f4a-bf25-c43c239c226c",
+        "uuid_b": "acb24204-d3e1-4c59-9fe5-6b893491a189",
+        "nframes": 98744,
+        "r_spk": 0.19553,
+        "r_lfp": 0.24816,
+        "delta_tau_spk_us": 7.06,
+        "pfaffian_flux_spk_ms_inv": 0.5303,
+        "pfaffian_flux_lfp_ms_inv": 0.00255,
+        "concordance_signature": "(2,0)",
+        "arf_invariant": 0,
+        "emergent_hidden_spikes_in_vdiff": 0,
+        "wall_obstruction_norm": 112.4872
+      }
+    ]
+  },
+  "milgram_operator_5_iterated_loop_space_delooping": {
+    "lean_theorems": [
+      "permutohedron_hyperplane_and_norm_invariants",
+      "permutohedron_codim1_facet_bipartition_law",
+      "permutohedron_product_boundary_euler_sphere_law",
+      "penner_milgram_fatgraph_euler_and_genus_formula",
+      "ribbon_fatgraph_planar_unfoldability_criterion"
+    ],
+    "permutohedron_pi3_geometry": {
+      "V": 24,
+      "E": 36,
+      "F_hex": 8,
+      "F_sq": 6,
+      "F_total": 14,
+      "euler_characteristic_V_minus_E_plus_F": 2,
+      "hyperplane_sum_S1": 10,
+      "sphere_norm_sq_S2": 30
+    },
+    "corpus_pi3_delooping_statistics": {
+      "total_4window_packets_mapped": 180685,
+      "occupied_pi3_vertices": 24,
+      "vertex_occupancy_shannon_entropy_bits": 4.584491,
+      "max_theoretical_entropy_log2_24_bits": 4.584963,
+      "hexagonal_facet_bipartition_3plus1_frac": 0.495498,
+      "square_facet_bipartition_2plus2_frac": 0.504502,
+      "laminar_coxeter_edge_transition_rate": 0.057241,
+      "vertex_counts_24": {
+        "(1, 2, 3, 4)": 7991,
+        "(1, 2, 4, 3)": 7700,
+        "(1, 3, 2, 4)": 7631,
+        "(1, 3, 4, 2)": 7421,
+        "(1, 4, 2, 3)": 7456,
+        "(1, 4, 3, 2)": 7353,
+        "(2, 1, 3, 4)": 7646,
+        "(2, 1, 4, 3)": 7466,
+        "(2, 3, 1, 4)": 7550,
+        "(2, 3, 4, 1)": 7388,
+        "(2, 4, 1, 3)": 7406,
+        "(2, 4, 3, 1)": 7510,
+        "(3, 1, 2, 4)": 7546,
+        "(3, 1, 4, 2)": 7435,
+        "(3, 2, 1, 4)": 7287,
+        "(3, 2, 4, 1)": 7376,
+        "(3, 4, 1, 2)": 7325,
+        "(3, 4, 2, 1)": 7602,
+        "(4, 1, 2, 3)": 7318,
+        "(4, 1, 3, 2)": 7354,
+        "(4, 2, 1, 3)": 7472,
+        "(4, 2, 3, 1)": 7698,
+        "(4, 3, 1, 2)": 7710,
+        "(4, 3, 2, 1)": 8044
+      }
+    },
+    "stitched_multi_epoch_worldtube_chains": [
+      {
+        "chain_id": 1,
+        "num_epochs": 4,
+        "uuids": [
+          "57681b42-118a-4aef-a498-49b81b8b1cdb",
+          "d3f365c9-b89d-4834-86b6-e9aa34e85e0c",
+          "d68cbb41-c533-425c-9dc1-5a3f1cdc63e4",
+          "37866662-764a-45d4-b3cf-d88efa70e5b3"
+        ],
+        "total_samples": 394855,
+        "duration_s": 20.2168,
+        "pi3_permutohedron_vertex": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 3,
+        "fatgraph_chord_crossings": 2,
+        "fatgraph_handle_genus_g": 1,
+        "fatgraph_min_relief_cuts_2g": 2
+      },
+      {
+        "chain_id": 2,
+        "num_epochs": 3,
+        "uuids": [
+          "07c990a2-7775-428b-ad4b-3cf4a233d5f6",
+          "30179ac2-f5a7-436e-8393-651dcf8a5d7b",
+          "4bece4b9-1c89-486e-9af6-8eae1e13e2e7"
+        ],
+        "total_samples": 296131,
+        "duration_s": 15.1621,
+        "pi3_permutohedron_vertex": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 1,
+        "fatgraph_chord_crossings": 0,
+        "fatgraph_handle_genus_g": 2,
+        "fatgraph_min_relief_cuts_2g": 4
+      },
+      {
+        "chain_id": 3,
+        "num_epochs": 3,
+        "uuids": [
+          "9f81ada1-082b-4223-88f8-4e3bc69ee9a9",
+          "ea1348d5-fb1f-4416-83ca-e229ddc738cb",
+          "51d333e5-823d-434d-b3bc-638aeed222b1"
+        ],
+        "total_samples": 296120,
+        "duration_s": 15.1615,
+        "pi3_permutohedron_vertex": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 1,
+        "fatgraph_chord_crossings": 4,
+        "fatgraph_handle_genus_g": 2,
+        "fatgraph_min_relief_cuts_2g": 4
+      },
+      {
+        "chain_id": 4,
+        "num_epochs": 3,
+        "uuids": [
+          "b00473d5-2043-4af7-ac66-d44917da73d2",
+          "b800deb5-00a6-4ef2-b99a-42359684367a",
+          "b8b26cb7-1bf1-4156-a51d-7994525690f2"
+        ],
+        "total_samples": 296106,
+        "duration_s": 15.1608,
+        "pi3_permutohedron_vertex": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 1,
+        "fatgraph_chord_crossings": 3,
+        "fatgraph_handle_genus_g": 2,
+        "fatgraph_min_relief_cuts_2g": 4
+      },
+      {
+        "chain_id": 5,
+        "num_epochs": 3,
+        "uuids": [
+          "d3a3ed97-626d-49c4-a253-b6e4ed73f260",
+          "578f64cd-9855-4a4f-bd78-3bf446b64391",
+          "f41b2956-e346-44c8-b28c-0db5c678d633"
+        ],
+        "total_samples": 296135,
+        "duration_s": 15.1623,
+        "pi3_permutohedron_vertex": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 3,
+        "fatgraph_chord_crossings": 2,
+        "fatgraph_handle_genus_g": 1,
+        "fatgraph_min_relief_cuts_2g": 2
+      },
+      {
+        "chain_id": 6,
+        "num_epochs": 3,
+        "uuids": [
+          "9b06f0d3-83f7-4fd0-9f03-34e0c10560a4",
+          "bbd01ca3-48df-41b9-a54f-a4d666db307e",
+          "aaafe57f-3851-405e-88d1-89ad577086f3"
+        ],
+        "total_samples": 297054,
+        "duration_s": 15.2094,
+        "pi3_permutohedron_vertex": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 3,
+        "fatgraph_chord_crossings": 1,
+        "fatgraph_handle_genus_g": 1,
+        "fatgraph_min_relief_cuts_2g": 2
+      },
+      {
+        "chain_id": 7,
+        "num_epochs": 3,
+        "uuids": [
+          "28cd0f1e-bc90-46ac-8f09-56fe0a7a7937",
+          "f5bed109-d390-47d8-ad66-f850d84e9e8f",
+          "4c769ab2-eb5f-4cb8-9ae8-fe0457335cbe"
+        ],
+        "total_samples": 296180,
+        "duration_s": 15.1646,
+        "pi3_permutohedron_vertex": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 1,
+        "fatgraph_chord_crossings": 0,
+        "fatgraph_handle_genus_g": 2,
+        "fatgraph_min_relief_cuts_2g": 4
+      },
+      {
+        "chain_id": 8,
+        "num_epochs": 3,
+        "uuids": [
+          "2908e5a8-7668-43ed-a5be-caa2822f52ba",
+          "07c990a2-7775-428b-ad4b-3cf4a233d5f6",
+          "bf2571e6-afb8-4ab7-a609-34214c0c7310"
+        ],
+        "total_samples": 296095,
+        "duration_s": 15.1603,
+        "pi3_permutohedron_vertex": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 3,
+        "fatgraph_chord_crossings": 1,
+        "fatgraph_handle_genus_g": 1,
+        "fatgraph_min_relief_cuts_2g": 2
+      },
+      {
+        "chain_id": 9,
+        "num_epochs": 3,
+        "uuids": [
+          "f1461d76-1c5b-4ceb-998a-c81a74ef0317",
+          "1cd57a9e-f016-41c9-9b19-7e1326454de7",
+          "25f79305-22a6-49f2-8c9b-0a0e9ef5d539"
+        ],
+        "total_samples": 296095,
+        "duration_s": 15.1603,
+        "pi3_permutohedron_vertex": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "pi3_S1_invariant": 10,
+        "pi3_S2_invariant": 30,
+        "fatgraph_V": 1,
+        "fatgraph_E_chords": 4,
+        "fatgraph_boundary_cycles_r": 3,
+        "fatgraph_chord_crossings": 1,
+        "fatgraph_handle_genus_g": 1,
+        "fatgraph_min_relief_cuts_2g": 2
+      }
+    ]
+  },
+  "execution_time_seconds": 37.77
+}

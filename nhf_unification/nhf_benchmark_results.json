@@ -1,0 +1,60 @@
+{
+  "dataset": {
+    "files_analyzed": 743,
+    "total_samples": 73383917,
+    "sampling_rate_hz": 19531.25,
+    "high_snr_spikes_extracted": 15079
+  },
+  "anharmonic_neural_hamiltonian": {
+    "omega0_sq": 0.09862965103399209,
+    "omega0_rad_per_sample": 0.31405357987768917,
+    "omega0_khz": 0.9762339772117115,
+    "alpha_Na_cubic": 0.2298142238176538,
+    "beta_K_quartic": 0.46607331651452,
+    "linear_harmonic_mse": 0.06826099874713765,
+    "anharmonic_hamiltonian_mse": 0.0657143576251176,
+    "anharmonic_restoring_force_mse_reduction_pct": 3.730741080208464
+  },
+  "nhf_spectral_compaction": {
+    "evaluated_spikes": 5000,
+    "parseval_max_relative_error": 2.7077656520910385e-15,
+    "orthonormality_frobenius_error": 1.1982625924591336e-14,
+    "euclidean_fft_energy_capture_pct": {
+      "K=1": 35.57860149860202,
+      "K=2": 55.01732863923484,
+      "K=3": 66.77051703662411,
+      "K=4": 74.89686230982672,
+      "K=8": 89.75003902050699
+    },
+    "dyadic_haar_wavelet_energy_capture_pct": {
+      "K=1": 48.23874726602811,
+      "K=2": 67.43911647210409,
+      "K=3": 77.2952038063852,
+      "K=4": 83.0008307465714,
+      "K=8": 92.73250964165464
+    },
+    "analytic_warped_nhf_energy_capture_pct": {
+      "K=1": 53.55528419565023,
+      "K=2": 73.18870133830069,
+      "K=3": 81.80041803590119,
+      "K=4": 86.31315312661816,
+      "K=8": 93.94463052412392
+    },
+    "sturm_liouville_nhf_eigenbasis_capture_pct": {
+      "K=1": 70.2915106429645,
+      "K=2": 80.81274760588654,
+      "K=3": 85.82490363380788,
+      "K=4": 88.9028805399988,
+      "K=8": 94.82887324605562
+    }
+  },
+  "symplectic_action_and_liouville": {
+    "fs_interneuron_count": 2951,
+    "rs_pyramidal_count": 12128,
+    "fs_symplectic_action_median": 583.4459154852615,
+    "rs_symplectic_action_median": 425.4214251639004,
+    "rs_to_fs_action_ratio": 0.7291531466289732,
+    "liouville_symplectic_jacobian_det_mean": 1.0,
+    "liouville_symplectic_jacobian_max_error": 2.220446049250313e-16
+  }
+}

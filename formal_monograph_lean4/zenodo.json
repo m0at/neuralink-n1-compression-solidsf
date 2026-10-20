@@ -1,5 +1,5 @@
 {
-  "title": "Exact Silicon Forensics, Blind Multi-Channel Noise Rejection, and Topological Spike-Worldtube Compression for Neuralink N1 Intracortical Telemetry via the 10x10 Jesse Pixelean & Voxelean Cohort",
+  "title": "Exact Silicon Forensics, Blind Multi-Channel Noise Rejection, Neural Algebra (Neurolean), Neural Hamiltonian-Fourier (NHF) Calculus, and 50,000-Node J1.3 Swarm Foundation Pretraining for Neuralink N1 Intracortical Telemetry",
   "upload_type": "publication",
   "publication_type": "preprint",
   "publication_date": "2026-10-19",
@@ -9,7 +9,7 @@
       "affiliation": "solidSF"
     }
   ],
-  "description": "A formal mathematical and neuroengineering monograph presenting the 10x10 Jesse Pixelean, Voxelean, and (3+1)D Temporal Worldtube Cohort analysis of the 743-file (73,383,917-sample, 19,531 Hz) Neuralink N1 intracortical recording dataset, backed by 24 kernel-verified theorems across 8 domain structures in Lean 4 (compiled with zero compiler warnings, zero sorry declarations, and zero custom axioms beyond ZFC via #assert_zfc_axioms) and 72 deterministic numerical oracle assertions.",
+  "description": "A formal mathematical and neuroengineering monograph presenting the 10x10 Jesse Pixelean, Voxelean, Neurolean Switching Algebra, Neural Hamiltonian-Fourier (NHF) Action-Angle Calculus, Reality Combs, Milgram Topological Surgery, and 50,000-Node J1.3 Adversarial Swarm analysis of the 743-file (73,383,917-sample, 19,531 Hz) Neuralink N1 intracortical recording dataset, backed by 60 kernel-verified theorems across 20 domain structures in Lean 4 (compiled with zero compiler warnings, zero sorry declarations, and zero custom axioms beyond ZFC via #assert_zfc_axioms) and 180 deterministic numerical oracle assertions.",
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
@@ -17,11 +17,12 @@
     "Brain-Computer Interface",
     "Pixelean",
     "Voxelean",
-    "Worldtube",
+    "Neurolean",
+    "Neural Hamiltonian-Fourier",
+    "Reality Combs",
+    "Milgram Topological Surgery",
     "Lean 4",
-    "SAR ADC Calibration",
-    "Topological Spike Sorting",
     "Neural Compression"
   ],
-  "version": "1.0.0"
+  "version": "2.0.0"
 }
